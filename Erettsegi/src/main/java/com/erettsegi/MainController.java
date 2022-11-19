@@ -13,8 +13,15 @@ import java.sql.*;
 public class MainController {
     @FXML public TableView tv1;
     @FXML public GridPane gr1;
+    @FXML public GridPane gr2;
+    @FXML public GridPane gr3;
     @FXML public TextField tf1;
+    @FXML public TextField tf2;
+    @FXML public TextField tf3;
+    @FXML public TextField tf4;
+    @FXML public TextField tf5;
     @FXML public ComboBox cb1;
+    @FXML public ComboBox cb2;
     @FXML public CheckBox ch1;
     @FXML public CheckBox ch2;
     @FXML public CheckBox ch3;
@@ -26,6 +33,10 @@ public class MainController {
     @FXML public ToggleGroup group;
     @FXML public Button btnSzuro;
     @FXML public Label errorForSzures;
+    @FXML public Label errorForVizsgazoHozzaadas;
+    @FXML public Label msgForVizsgazoHozzaadas;
+    @FXML public Label errorForVizsgazoModositas;
+    @FXML public Label msgForVizsgazoModositas;
     @FXML public TableColumn<Vizsgaadatok, Integer> vizsgazoAzonCol;
     @FXML public TableColumn<Vizsgaadatok, String> nevCol;
     @FXML public TableColumn<Vizsgaadatok, String> osztalyCol;
@@ -43,15 +54,26 @@ public class MainController {
     protected void ElemekTörlése() {
         gr1.setVisible(false);
         gr1.setManaged(false);
+        gr2.setVisible(false);
+        gr2.setManaged(false);
+        gr3.setVisible(false);
+        gr3.setManaged(false);
         tv1.setVisible(false);
         tv1.setManaged(false);
         errorForSzures.setVisible(false);
         errorForSzures.setManaged(false);
+        errorForVizsgazoHozzaadas.setVisible(false);
+        errorForVizsgazoHozzaadas.setManaged(false);
+        msgForVizsgazoHozzaadas.setVisible(false);
+        msgForVizsgazoHozzaadas.setManaged(false);
+        errorForVizsgazoModositas.setVisible(false);
+        errorForVizsgazoModositas.setManaged(false);
+        msgForVizsgazoModositas.setVisible(false);
+        msgForVizsgazoModositas.setManaged(false);
     }
     @FXML void initialize() throws SQLException {
         cb1.getItems().addAll("Magyar nyelv és irodalom", "Történelem", "Matematika", "Informatika", "Fizika", "Kémia", "Angol", "Német", "Földrajz", "Biológia");
         cb1.getSelectionModel().select("Magyar nyelv és irodalom");
-
         ElemekTörlése();
         Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
         factory = cfg.buildSessionFactory();
@@ -59,6 +81,11 @@ public class MainController {
         DriverManager.registerDriver(new com.mysql.jdbc.Driver());
         connection = DriverManager.getConnection(URL);
         statement = connection.createStatement();
+        ResultSet vizsgazoAzonositok = statement.executeQuery("SELECT azon FROM vizsgazo");
+        while(vizsgazoAzonositok.next()) {
+            cb2.getItems().add(vizsgazoAzonositok.getInt("azon"));
+        }
+        cb2.getSelectionModel().select("1");
     }
     protected void initMenu() {
         ElemekTörlése();
@@ -114,14 +141,24 @@ public class MainController {
         gr1.setVisible(true);
         gr1.setManaged(true);
         rb1.setSelected(true);
+        ch1.setSelected(false);
+        ch2.setSelected(false);
+        ch3.setSelected(false);
+        ch4.setSelected(false);
+        tf1.setText("");
     }
     @FXML
     protected void menuWriteClick() {
+        ElemekTörlése();
+        gr2.setVisible(true);
+        gr2.setManaged(true);
 
     }
     @FXML
     protected void menuUpdateClick() {
-
+        ElemekTörlése();
+        gr3.setVisible(true);
+        gr3.setManaged(true);
     }
     @FXML
     protected void menuDeleteClick() {
@@ -142,21 +179,18 @@ public class MainController {
             errorForSzures.setVisible(false);
             errorForSzures.setManaged(false);
             tv1.getItems().removeAll(tv1.getItems());
-
             String preparedQuery = "SELECT va.azon, va.nev, va.osztaly, vt.azon as targyAzon, vt.nev as targyNev, vt.szomax, vt.irmax, v.szobeli, v.irasbeli " +
                     "FROM Vizsgazo as va LEFT JOIN Vizsga as v ON va.azon = v.vizsgazoaz LEFT JOIN Vizsgatargy as vt ON v.vizsgatargyaz = vt.azon " +
                     "WHERE va.nev LIKE ? AND vt.nev = ? AND va.osztaly LIKE ? AND vt.szomax BETWEEN ? AND ? AND vt.irmax BETWEEN ? AND ?";
-
+            preparedStatement = connection.prepareStatement(preparedQuery);
             if(tf1.getText().length() == 0) {
                 preparedStatement.setString(1, "%");
             } else {
                 preparedStatement.setString(1, tf1.getText());
             }
             preparedStatement.setString(2, cb1.getValue() + "");
-
             RadioButton rb = (RadioButton)group.getSelectedToggle();
             preparedStatement.setString(3, rb.getText() + "%");
-
             if (ch1.isSelected() == true) {
                 preparedStatement.setInt(4, 0);
                 preparedStatement.setInt(5, 50);
@@ -177,16 +211,63 @@ public class MainController {
                 preparedStatement.setInt(6, 0);
                 preparedStatement.setInt(7, 120);
             }
-
-            preparedStatement = connection.prepareStatement(preparedQuery);
             ResultSet vizsgaadatokSorai = preparedStatement.executeQuery();
-
             while(vizsgaadatokSorai.next()) {
                 Vizsgaadatok vizsgaadatok = new Vizsgaadatok(vizsgaadatokSorai.getInt("azon"), vizsgaadatokSorai.getString("nev"), vizsgaadatokSorai.getString("osztaly"),
                         vizsgaadatokSorai.getInt("targyAzon"), vizsgaadatokSorai.getString("targyNev"), vizsgaadatokSorai.getInt("szomax"),
                         vizsgaadatokSorai.getInt("irmax"), vizsgaadatokSorai.getInt("szobeli"), vizsgaadatokSorai.getInt("irasbeli"));
                 tv1.getItems().add(vizsgaadatok);
             }
+        }
+    }
+
+    @FXML
+    protected void btnVizsgazoHozzaad() throws SQLException {
+        if(tf2.getText().length() == 0 || tf3.getText().length() == 0) {
+            errorForVizsgazoHozzaadas.setVisible(true);
+            errorForVizsgazoHozzaadas.setManaged(true);
+            msgForVizsgazoHozzaadas.setVisible(false);
+            msgForVizsgazoHozzaadas.setManaged(false);
+        } else {
+            errorForVizsgazoHozzaadas.setVisible(false);
+            errorForVizsgazoHozzaadas.setManaged(false);
+            preparedStatement = connection.prepareStatement("INSERT INTO vizsgazo (nev, osztaly) VALUES (?, ?)");
+            preparedStatement.setString(1,tf2.getText() + "");
+            preparedStatement.setString(2,tf3.getText() + "");
+            preparedStatement.executeUpdate();
+            msgForVizsgazoHozzaadas.setVisible(true);
+            msgForVizsgazoHozzaadas.setManaged(true);
+            tf2.setText("");
+            tf3.setText("");
+        }
+    }
+    @FXML
+    protected void btnVizsgazoModosit() throws SQLException {
+        if(tf4.getText().length() == 0 && tf5.getText().length() == 0) {
+            errorForVizsgazoModositas.setVisible(true);
+            errorForVizsgazoModositas.setManaged(true);
+            msgForVizsgazoModositas.setVisible(false);
+            msgForVizsgazoModositas.setManaged(false);
+        } else {
+            errorForVizsgazoModositas.setVisible(false);
+            errorForVizsgazoModositas.setManaged(false);
+            String vizsgazoAzonosito = cb2.getValue() + "";
+            if(tf4.getText().length() != 0) {
+                preparedStatement = connection.prepareStatement("UPDATE vizsgazo SET nev = ? WHERE azon = ?");
+                preparedStatement.setString(1, tf4.getText());
+                preparedStatement.setString(2, vizsgazoAzonosito);
+                preparedStatement.executeUpdate();
+            }
+            if(tf5.getText().length() != 0) {
+                preparedStatement = connection.prepareStatement("UPDATE vizsgazo SET osztaly = ? WHERE azon = ?");
+                preparedStatement.setString(1, tf5.getText());
+                preparedStatement.setString(2, vizsgazoAzonosito);
+                preparedStatement.executeUpdate();
+            }
+            msgForVizsgazoModositas.setVisible(true);
+            msgForVizsgazoModositas.setManaged(true);
+            tf4.setText("");
+            tf5.setText("");
         }
     }
 }
