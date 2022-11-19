@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import javafx.scene.control.ToggleGroup?>
-<VBox spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="com.erettsegi.MainController">
+<VBox spacing="20.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.erettsegi.MainController">
     <MenuBar fx:id="menuBar">
         <menus>
             <Menu text="Adatbázis">
@@ -43,8 +43,9 @@
          <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="10.0" prefWidth="50.0" />
        <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="10.0" prefWidth="400.0" />
          <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="10.0" prefWidth="50.0" />
-       <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="61.0" />
-         <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="10.0" prefWidth="400.0" />
+       <ColumnConstraints hgrow="SOMETIMES" maxWidth="300.0" minWidth="10.0" prefWidth="300.0" />
+         <ColumnConstraints hgrow="SOMETIMES" maxWidth="70.0" minWidth="10.0" prefWidth="70.0" />
+         <ColumnConstraints hgrow="SOMETIMES" maxWidth="70.0" minWidth="10.0" prefWidth="100.0" />
      </columnConstraints>
      <rowConstraints>
          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -53,21 +54,24 @@
        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
      </rowConstraints>
       <children>
          <ComboBox fx:id="cb1" prefWidth="400.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          <TextField fx:id="tf1" promptText="Vizsgázó neve" GridPane.columnIndex="1" GridPane.rowIndex="1" />
           <fx:define><ToggleGroup fx:id="group" /></fx:define>
-          <RadioButton toggleGroup="$group" fx:id="rb1" mnemonicParsing="false" text="9.-es" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-          <RadioButton toggleGroup="$group" fx:id="rb2" mnemonicParsing="false" text="10.-es" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-          <RadioButton toggleGroup="$group" fx:id="rb3" mnemonicParsing="false" text="11.-es" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-         <RadioButton toggleGroup="$group" fx:id="rb4" mnemonicParsing="false" text="12.-es" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+          <RadioButton toggleGroup="$group" fx:id="rb1" mnemonicParsing="false" text="9" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+          <RadioButton toggleGroup="$group" fx:id="rb2" mnemonicParsing="false" text="10" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+          <RadioButton toggleGroup="$group" fx:id="rb3" mnemonicParsing="false" text="11" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+         <RadioButton toggleGroup="$group" fx:id="rb4" mnemonicParsing="false" text="12" GridPane.columnIndex="5" GridPane.rowIndex="2" />
          <CheckBox fx:id="ch1" mnemonicParsing="false" text="Szóbelin elérhető max. pontszám kevesebb vagy egyenlő, mint 50" GridPane.columnIndex="1" GridPane.rowIndex="3" />
          <CheckBox fx:id="ch2" mnemonicParsing="false" text="Írásbelin elérhető max. pontszám kevesebb vagy egyenlő, mint 90" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-         <CheckBox fx:id="ch3" mnemonicParsing="false" text="Szóbelin elérhető max. pontszám 50 -nél több" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-         <CheckBox fx:id="ch4" mnemonicParsing="false" text="Írásbelin elérhető max. pontszám 90 -nél több" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+         <CheckBox fx:id="ch3" mnemonicParsing="false" text="Szóbelin elérhető max. pontszám 50 -nél több" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+         <CheckBox fx:id="ch4" mnemonicParsing="false" text="Írásbelin elérhető max. pontszám 90 -nél több" GridPane.columnIndex="3" GridPane.rowIndex="4" />
          <Button fx:id="btnSzuro" onAction="#btnSzuro" alignment="CENTER" mnemonicParsing="false" text="Szűrés" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
          <Label text="Megadhat szűrőfeltételeket:" GridPane.columnIndex="1" />
+         <Label fx:id="errorForSzures" text="Label" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+         <Label text="Osztály:" GridPane.columnIndex="3" GridPane.rowIndex="1" />
       </children>
    </GridPane>
     <TableView fx:id="tv1">
