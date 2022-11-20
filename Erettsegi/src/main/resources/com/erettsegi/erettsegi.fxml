@@ -119,6 +119,35 @@
             <Label fx:id="msgForVizsgazoModositas" text="Sikeresen módosította a vizsgázót a vizsgazo táblában!" GridPane.columnIndex="1" GridPane.rowIndex="6" />
         </children>
     </GridPane>
+    <GridPane fx:id="gr4">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="200.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="200.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+        <children>
+            <Label text="Ön most bárkinek bármelyik vizsgáját törölheti!" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label text="Válassza ki a vizsgázó azonosítóját, majd vizsgatárgya azonosítóját," GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="ezzel törölve az adott vizsgázó adott vizsgatárgyához tartozó vizsgáját:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label text="Vizsgázó azonosítója:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <ComboBox fx:id="cb3" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label text="Vizsgázó vizsgatárgyainak azonosítója:" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <ComboBox fx:id="cb4" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <Button mnemonicParsing="false" onAction="#btnVizsgaTorol" text="Vizsga törlése" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label fx:id="errorForVizsgaTorles" text="Vagy a vizsgázó vagy vizsgatárgya azonosítója nincs kijelölve a törléshez! Kérem pótolja!" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label fx:id="errorForVizsgaTorles2" text="Nincs ilyen vizsga az adatbázisban!" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label fx:id="msgForVizsgaTorles" text="Sikeresen törölte a vizsgát a vizsga táblából!" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+        </children>
+    </GridPane>
     <TableView fx:id="tv1">
     </TableView>
 </VBox>

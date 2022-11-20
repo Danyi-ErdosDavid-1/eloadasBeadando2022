@@ -15,6 +15,7 @@ public class MainController {
     @FXML public GridPane gr1;
     @FXML public GridPane gr2;
     @FXML public GridPane gr3;
+    @FXML public GridPane gr4;
     @FXML public TextField tf1;
     @FXML public TextField tf2;
     @FXML public TextField tf3;
@@ -22,6 +23,8 @@ public class MainController {
     @FXML public TextField tf5;
     @FXML public ComboBox cb1;
     @FXML public ComboBox cb2;
+    @FXML public ComboBox cb3;
+    @FXML public ComboBox cb4;
     @FXML public CheckBox ch1;
     @FXML public CheckBox ch2;
     @FXML public CheckBox ch3;
@@ -37,6 +40,9 @@ public class MainController {
     @FXML public Label msgForVizsgazoHozzaadas;
     @FXML public Label errorForVizsgazoModositas;
     @FXML public Label msgForVizsgazoModositas;
+    @FXML public Label msgForVizsgaTorles;
+    @FXML public Label errorForVizsgaTorles;
+    @FXML public Label errorForVizsgaTorles2;
     @FXML public TableColumn<Vizsgaadatok, Integer> vizsgazoAzonCol;
     @FXML public TableColumn<Vizsgaadatok, String> nevCol;
     @FXML public TableColumn<Vizsgaadatok, String> osztalyCol;
@@ -58,6 +64,8 @@ public class MainController {
         gr2.setManaged(false);
         gr3.setVisible(false);
         gr3.setManaged(false);
+        gr4.setVisible(false);
+        gr4.setManaged(false);
         tv1.setVisible(false);
         tv1.setManaged(false);
         errorForSzures.setVisible(false);
@@ -70,6 +78,12 @@ public class MainController {
         errorForVizsgazoModositas.setManaged(false);
         msgForVizsgazoModositas.setVisible(false);
         msgForVizsgazoModositas.setManaged(false);
+        msgForVizsgaTorles.setVisible(false);
+        msgForVizsgaTorles.setManaged(false);
+        errorForVizsgaTorles.setVisible(false);
+        errorForVizsgaTorles.setManaged(false);
+        errorForVizsgaTorles2.setVisible(false);
+        errorForVizsgaTorles2.setManaged(false);
     }
     @FXML void initialize() throws SQLException {
         cb1.getItems().addAll("Magyar nyelv és irodalom", "Történelem", "Matematika", "Informatika", "Fizika", "Kémia", "Angol", "Német", "Földrajz", "Biológia");
@@ -81,11 +95,6 @@ public class MainController {
         DriverManager.registerDriver(new com.mysql.jdbc.Driver());
         connection = DriverManager.getConnection(URL);
         statement = connection.createStatement();
-        ResultSet vizsgazoAzonositok = statement.executeQuery("SELECT azon FROM vizsgazo");
-        while(vizsgazoAzonositok.next()) {
-            cb2.getItems().add(vizsgazoAzonositok.getInt("azon"));
-        }
-        cb2.getSelectionModel().select("1");
     }
     protected void initMenu() {
         ElemekTörlése();
@@ -155,14 +164,40 @@ public class MainController {
 
     }
     @FXML
-    protected void menuUpdateClick() {
+    protected void menuUpdateClick() throws SQLException {
         ElemekTörlése();
         gr3.setVisible(true);
         gr3.setManaged(true);
+        cb2.getItems().removeAll(cb2.getItems());
+        ResultSet vizsgazoAzonositok = statement.executeQuery("SELECT azon FROM vizsgazo");
+        while(vizsgazoAzonositok.next()) {
+            cb2.getItems().add(vizsgazoAzonositok.getInt("azon"));
+        }
+        cb2.getSelectionModel().select("1");
     }
     @FXML
-    protected void menuDeleteClick() {
-
+    protected void menuDeleteClick() throws SQLException {
+        ElemekTörlése();
+        gr4.setVisible(true);
+        gr4.setManaged(true);
+        cb3.getItems().removeAll(cb3.getItems());
+        cb4.getItems().removeAll(cb4.getItems());
+        ResultSet vizsgazoAzonositok = statement.executeQuery("SELECT DISTINCT vizsgazoaz FROM vizsga");
+        int va = 0;
+        while(vizsgazoAzonositok.next()) {
+            cb3.getItems().add(vizsgazoAzonositok.getInt("vizsgazoaz"));
+            int firstNum = vizsgazoAzonositok.getInt("vizsgazoaz");
+            if(va == 0) cb3.getSelectionModel().select(firstNum);
+            va++;
+        }
+        ResultSet vizsgatargyAzonositok = statement.executeQuery("SELECT DISTINCT vizsgatargyaz FROM vizsga");
+        int vt = 0;
+        while(vizsgatargyAzonositok.next()) {
+            cb4.getItems().add(vizsgatargyAzonositok.getInt("vizsgatargyaz"));
+            int firstNum = vizsgatargyAzonositok.getInt("vizsgatargyaz");
+            if(vt == 0) cb4.getSelectionModel().select(firstNum);
+            vt++;
+        }
     }
 
     @FXML
@@ -268,6 +303,51 @@ public class MainController {
             msgForVizsgazoModositas.setManaged(true);
             tf4.setText("");
             tf5.setText("");
+        }
+    }
+    @FXML
+    protected void btnVizsgaTorol() throws SQLException {
+        if(cb3.getValue() == null || cb4.getValue() == null) {
+            msgForVizsgaTorles.setVisible(false);
+            msgForVizsgaTorles.setManaged(false);
+            errorForVizsgaTorles2.setVisible(false);
+            errorForVizsgaTorles2.setManaged(false);
+            errorForVizsgaTorles.setVisible(true);
+            errorForVizsgaTorles.setManaged(true);
+        } else {
+            preparedStatement = connection.prepareStatement("DELETE FROM vizsga WHERE vizsgazoaz = ? AND vizsgatargyaz = ?");
+            preparedStatement.setString(1, cb3.getValue() + "");
+            preparedStatement.setString(2, cb4.getValue() + "");
+            System.out.println(preparedStatement.toString());
+            errorForVizsgaTorles.setVisible(false);
+            errorForVizsgaTorles.setManaged(false);
+            errorForVizsgaTorles2.setVisible(false);
+            errorForVizsgaTorles2.setManaged(false);
+            if(preparedStatement.executeUpdate() == 0) {
+                errorForVizsgaTorles2.setVisible(true);
+                errorForVizsgaTorles2.setManaged(true);
+            } else {
+                msgForVizsgaTorles.setVisible(true);
+                msgForVizsgaTorles.setManaged(true);
+            };
+        }
+        cb3.getItems().removeAll(cb3.getItems());
+        cb4.getItems().removeAll(cb4.getItems());
+        ResultSet vizsgazoAzonositok = statement.executeQuery("SELECT DISTINCT vizsgazoaz FROM vizsga");
+        int va = 0;
+        while(vizsgazoAzonositok.next()) {
+            cb3.getItems().add(vizsgazoAzonositok.getInt("vizsgazoaz"));
+            int firstNum = vizsgazoAzonositok.getInt("vizsgazoaz");
+            if(va == 0) cb3.getSelectionModel().select(firstNum);
+            va++;
+        }
+        ResultSet vizsgatargyAzonositok = statement.executeQuery("SELECT DISTINCT vizsgatargyaz FROM vizsga");
+        int vt = 0;
+        while(vizsgatargyAzonositok.next()) {
+            cb4.getItems().add(vizsgatargyAzonositok.getInt("vizsgatargyaz"));
+            int firstNum = vizsgatargyAzonositok.getInt("vizsgatargyaz");
+            if(vt == 0) cb4.getSelectionModel().select(firstNum);
+            vt++;
         }
     }
 }
