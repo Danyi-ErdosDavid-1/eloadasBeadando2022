@@ -1,21 +1,29 @@
 package com.erettsegi;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import java.sql.*;
 
-public class MainController {
+import java.io.IOException;
+import java.net.URL;
+import java.sql.*;
+import java.util.ResourceBundle;
+
+public class MainController implements Initializable {
     @FXML public TableView tv1;
     @FXML public GridPane gr1;
     @FXML public GridPane gr2;
     @FXML public GridPane gr3;
     @FXML public GridPane gr4;
+    @FXML public GridPane gr5;
     @FXML public TextField tf1;
     @FXML public TextField tf2;
     @FXML public TextField tf3;
@@ -56,7 +64,6 @@ public class MainController {
     Connection connection;
     Statement statement;
     PreparedStatement preparedStatement;
-
     protected void ElemekTörlése() {
         gr1.setVisible(false);
         gr1.setManaged(false);
@@ -66,6 +73,8 @@ public class MainController {
         gr3.setManaged(false);
         gr4.setVisible(false);
         gr4.setManaged(false);
+        gr5.setVisible(false);
+        gr5.setManaged(false);
         tv1.setVisible(false);
         tv1.setManaged(false);
         errorForSzures.setVisible(false);
@@ -85,10 +94,19 @@ public class MainController {
         errorForVizsgaTorles2.setVisible(false);
         errorForVizsgaTorles2.setManaged(false);
     }
-    @FXML void initialize() throws SQLException {
+    @FXML
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         cb1.getItems().addAll("Magyar nyelv és irodalom", "Történelem", "Matematika", "Informatika", "Fizika", "Kémia", "Angol", "Német", "Földrajz", "Biológia");
         cb1.getSelectionModel().select("Magyar nyelv és irodalom");
         ElemekTörlése();
+        try {
+            initConfig();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public void initConfig() throws SQLException {
         Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
         factory = cfg.buildSessionFactory();
         final String URL = "jdbc:mysql://localhost/erettsegi?user=root&characterEncoding=utf8";
@@ -199,7 +217,6 @@ public class MainController {
             vt++;
         }
     }
-
     @FXML
     protected void btnSzuro() throws SQLException {
         if((ch1.isSelected() && ch3.isSelected()) || (ch2.isSelected() && ch4.isSelected())) {
@@ -255,7 +272,6 @@ public class MainController {
             }
         }
     }
-
     @FXML
     protected void btnVizsgazoHozzaad() throws SQLException {
         if(tf2.getText().length() == 0 || tf3.getText().length() == 0) {
@@ -351,67 +367,78 @@ public class MainController {
         }
     }
     @FXML
-    protected void rest1CreateClick() {
+    protected void rest1MenuCreateClick() {
 
     }
     @FXML
-    protected void rest1ReadClick() {
+    protected void rest1MenuReadClick() {
 
     }
     @FXML
-    protected void rest1UpdateClick() {
+    protected void rest1MenuUpdateClick() {
 
     }
     @FXML
-    protected void rest1DeleteClick() {
+    protected void rest1MenuDeleteClick() {
 
     }
     @FXML
-    protected void rest2CreateClick() {
+    protected void rest2MenuCreateClick() {
 
     }
     @FXML
-    protected void rest2ReadClick() {
+    protected void rest2MenuReadClick() {
 
     }
     @FXML
-    protected void rest2UpdateClick() {
+    protected void rest2MenuUpdateClick() {
 
     }
     @FXML
-    protected void rest2DeleteClick() {
+    protected void rest2MenuDeleteClick() {
 
     }
     @FXML
-    protected void soapKliensLetöltés() {
+    protected void soapKliensMenuLetöltés() {
 
     }
     @FXML
-    protected void soapKliensLetöltés2() {
+    protected void soapKliensMenuLetöltés2() {
 
     }
     @FXML
-    protected void soapKliensGrafikon() {
+    protected void soapKliensMenuGrafikon() {
 
     }
     @FXML
-    protected void adatbányászatDöntésiFa() {
+    protected void adatbányászatMenuDöntésiFa() {
 
     }
     @FXML
-    protected void adatbányászatTöbbAlgoritmus() {
+    protected void adatbányászatMenuTöbbAlgoritmus() {
 
     }
     @FXML
-    protected void adatbányászatTöbbAlgoritmus2() {
+    protected void adatbányászatMenuTöbbAlgoritmus2() {
 
     }
     @FXML
-    protected void egyébPárhuzamos() {
+    protected void egyébMenuPárhuzamos() {
+        ElemekTörlése();
+        gr5.setVisible(true);
+        gr5.setManaged(true);
+    }
 
+    @FXML
+    protected void btnPárhuzamosStart() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("parallel.fxml"));
+        Scene scene = new Scene(root, 600, 400);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
     }
     @FXML
-    protected void egyébStream() {
+    protected void egyébMenuStream() {
 
     }
 }

@@ -38,60 +38,60 @@
             </Menu>
             <Menu text="Rest1">
                 <items>
-                    <MenuItem onAction="#rest1CreateClick" text="Create" />
+                    <MenuItem onAction="#rest1MenuCreateClick" text="Create" />
                 </items>
                 <items>
-                    <MenuItem onAction="#rest1ReadClick" text="Read" />
+                    <MenuItem onAction="#rest1MenuReadClick" text="Read" />
                 </items>
                 <items>
-                    <MenuItem onAction="#rest1UpdateClick" text="Update" />
+                    <MenuItem onAction="#rest1MenuUpdateClick" text="Update" />
                 </items>
                 <items>
-                    <MenuItem onAction="#rest1DeleteClick" text="Delete" />
+                    <MenuItem onAction="#rest1MenuDeleteClick" text="Delete" />
                 </items>
             </Menu>
             <Menu text="Rest2">
                 <items>
-                    <MenuItem onAction="#rest2CreateClick" text="Create" />
+                    <MenuItem onAction="#rest2MenuCreateClick" text="Create" />
                 </items>
                 <items>
-                    <MenuItem onAction="#rest2ReadClick" text="Read" />
+                    <MenuItem onAction="#rest2MenuReadClick" text="Read" />
                 </items>
                 <items>
-                    <MenuItem onAction="#rest2UpdateClick" text="Update" />
+                    <MenuItem onAction="#rest2MenuUpdateClick" text="Update" />
                 </items>
                 <items>
-                    <MenuItem onAction="#rest2DeleteClick" text="Delete" />
+                    <MenuItem onAction="#rest2MenuDeleteClick" text="Delete" />
                 </items>
             </Menu>
             <Menu text="SoapKliens">
                 <items>
-                    <MenuItem onAction="#soapKliensLetöltés" text="Letöltés" />
+                    <MenuItem onAction="#soapKliensMenuLetöltés" text="Letöltés" />
                 </items>
                 <items>
-                    <MenuItem onAction="#soapKliensLetöltés2" text="Letöltés2" />
+                    <MenuItem onAction="#soapKliensMenuLetöltés2" text="Letöltés2" />
                 </items>
                 <items>
-                    <MenuItem onAction="#soapKliensGrafikon" text="Grafikon" />
+                    <MenuItem onAction="#soapKliensMenuGrafikon" text="Grafikon" />
                 </items>
             </Menu>
             <Menu text="Adatbányászat">
                 <items>
-                    <MenuItem onAction="#adatbányászatDöntésiFa" text="Döntési fa" />
+                    <MenuItem onAction="#adatbányászatMenuDöntésiFa" text="Döntési fa" />
                 </items>
                 <items>
-                    <MenuItem onAction="#adatbányászatTöbbAlgoritmus" text="Több algoritmus" />
+                    <MenuItem onAction="#adatbányászatMenuTöbbAlgoritmus" text="Több algoritmus" />
                 </items>
                 <items>
-                    <MenuItem onAction="#adatbányászatTöbbAlgoritmus2" text="Több algoritmus 2" />
+                    <MenuItem onAction="#adatbányászatMenuTöbbAlgoritmus2" text="Több algoritmus 2" />
                 </items>
             </Menu>
             <Menu text="Egyéb">
                 <items>
-                    <MenuItem onAction="#egyébPárhuzamos" text="Párhuzamos" />
+                    <MenuItem onAction="#egyébMenuPárhuzamos" text="Párhuzamos" />
                 </items>
                 <items>
-                    <MenuItem onAction="#egyébStream" text="Stream" />
+                    <MenuItem onAction="#egyébMenuStream" text="Stream" />
                 </items>
             </Menu>
         </menus>
@@ -208,4 +208,24 @@
     </GridPane>
     <TableView fx:id="tv1">
     </TableView>
+    <GridPane fx:id="gr5">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="200.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="200.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+        <children>
+            <Label text="Itt ki tudja próbálni, milyen a párhuzamos működés!" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Működés: két Label mozog egymással ellentétesen, eltérő ütemben." GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Button mnemonicParsing="false" onAction="#btnPárhuzamosStart" text="Párhuzamos működés funkció: start" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+        </children>
+    </GridPane>
 </VBox>
