@@ -350,4 +350,68 @@ public class MainController {
             vt++;
         }
     }
+    @FXML
+    protected void rest1CreateClick() {
+
+    }
+    @FXML
+    protected void rest1ReadClick() {
+
+    }
+    @FXML
+    protected void rest1UpdateClick() {
+
+    }
+    @FXML
+    protected void rest1DeleteClick() {
+
+    }
+    @FXML
+    protected void rest2CreateClick() {
+
+    }
+    @FXML
+    protected void rest2ReadClick() {
+
+    }
+    @FXML
+    protected void rest2UpdateClick() {
+
+    }
+    @FXML
+    protected void rest2DeleteClick() {
+
+    }
+    @FXML
+    protected void soapKliensLetöltés() {
+
+    }
+    @FXML
+    protected void soapKliensLetöltés2() {
+
+    }
+    @FXML
+    protected void soapKliensGrafikon() {
+
+    }
+    @FXML
+    protected void adatbányászatDöntésiFa() {
+
+    }
+    @FXML
+    protected void adatbányászatTöbbAlgoritmus() {
+
+    }
+    @FXML
+    protected void adatbányászatTöbbAlgoritmus2() {
+
+    }
+    @FXML
+    protected void egyébPárhuzamos() {
+
+    }
+    @FXML
+    protected void egyébStream() {
+
+    }
 }

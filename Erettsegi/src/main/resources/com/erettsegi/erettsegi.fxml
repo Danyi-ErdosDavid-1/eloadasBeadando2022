@@ -36,6 +36,64 @@
                     <MenuItem onAction="#menuDeleteClick" text="Töröl" />
                 </items>
             </Menu>
+            <Menu text="Rest1">
+                <items>
+                    <MenuItem onAction="#rest1CreateClick" text="Create" />
+                </items>
+                <items>
+                    <MenuItem onAction="#rest1ReadClick" text="Read" />
+                </items>
+                <items>
+                    <MenuItem onAction="#rest1UpdateClick" text="Update" />
+                </items>
+                <items>
+                    <MenuItem onAction="#rest1DeleteClick" text="Delete" />
+                </items>
+            </Menu>
+            <Menu text="Rest2">
+                <items>
+                    <MenuItem onAction="#rest2CreateClick" text="Create" />
+                </items>
+                <items>
+                    <MenuItem onAction="#rest2ReadClick" text="Read" />
+                </items>
+                <items>
+                    <MenuItem onAction="#rest2UpdateClick" text="Update" />
+                </items>
+                <items>
+                    <MenuItem onAction="#rest2DeleteClick" text="Delete" />
+                </items>
+            </Menu>
+            <Menu text="SoapKliens">
+                <items>
+                    <MenuItem onAction="#soapKliensLetöltés" text="Letöltés" />
+                </items>
+                <items>
+                    <MenuItem onAction="#soapKliensLetöltés2" text="Letöltés2" />
+                </items>
+                <items>
+                    <MenuItem onAction="#soapKliensGrafikon" text="Grafikon" />
+                </items>
+            </Menu>
+            <Menu text="Adatbányászat">
+                <items>
+                    <MenuItem onAction="#adatbányászatDöntésiFa" text="Döntési fa" />
+                </items>
+                <items>
+                    <MenuItem onAction="#adatbányászatTöbbAlgoritmus" text="Több algoritmus" />
+                </items>
+                <items>
+                    <MenuItem onAction="#adatbányászatTöbbAlgoritmus2" text="Több algoritmus 2" />
+                </items>
+            </Menu>
+            <Menu text="Egyéb">
+                <items>
+                    <MenuItem onAction="#egyébPárhuzamos" text="Párhuzamos" />
+                </items>
+                <items>
+                    <MenuItem onAction="#egyébStream" text="Stream" />
+                </items>
+            </Menu>
         </menus>
     </MenuBar>
    <GridPane fx:id="gr1">
