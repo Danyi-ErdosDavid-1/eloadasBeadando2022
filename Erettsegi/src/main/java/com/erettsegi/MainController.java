@@ -14,7 +14,6 @@ import org.hibernate.cfg.Configuration;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
-import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
@@ -462,6 +461,7 @@ public class MainController implements Initializable {
     }
     @FXML
     protected void btnRest1MenuCreateClick() throws IOException {
+        ta2.setText("");
         URL postUrl = new URL("https://gorest.co.in/public/v1/users");
         httpsURLConnection = (HttpsURLConnection) postUrl.openConnection();
         httpsURLConnection.setRequestMethod("POST");
@@ -489,6 +489,7 @@ public class MainController implements Initializable {
     }
     @FXML
     protected void btnRest1MenuReadClick() throws IOException {
+        ta1.setText("");
         String url = "https://gorest.co.in/public/v1/users";
         String ID = tf6.getText();
         if(ID != null)
@@ -515,6 +516,7 @@ public class MainController implements Initializable {
     }
     @FXML
     protected void btnRest1MenuUpdateClick() throws IOException {
+        ta3.setText("");
         String ID = tf11.getText();
         String name = tf12.getText();
         String gender = tf13.getText();
@@ -544,6 +546,7 @@ public class MainController implements Initializable {
     }
     @FXML
     protected void btnRest1MenuDeleteClick() throws IOException {
+        ta4.setText("");
         String ID = tf16.getText();
         String url = "https://gorest.co.in/public/v1/users"+"/"+ID;
         URL postUrl = new URL(url);
@@ -566,8 +569,22 @@ public class MainController implements Initializable {
         gr10.setManaged(true);
     }
     @FXML
-    protected void btnRest2MenuCreateClick() {
-
+    protected void btnRest2MenuCreateClick() throws IOException {
+        ta5.setText("");
+        String nev = tf17.getText();
+        String osztaly = tf18.getText();
+        URL postUrl = new URL("https://danyi-erdosdavid-eloadas-beadando-3feladat.azurewebsites.net/szemelyek");
+        httpsURLConnection = (HttpsURLConnection) postUrl.openConnection();
+        httpsURLConnection.setRequestMethod("POST");
+        segéd1();
+        String params = "{\"nev\":\""+nev+"\", \"osztaly\":\""+osztaly+"\"}";
+        segéd2(params);
+        String response = segéd3(HttpsURLConnection.HTTP_OK);
+        if(!response.equals("Hiba!!!")) {
+            ta5.setText(response);
+        } else {
+            ta5.setText("Az új vizsgázó létrehozása sajnos nem sikerült.");
+        }
     }
     @FXML
     protected void rest2MenuReadClick() {
@@ -579,6 +596,7 @@ public class MainController implements Initializable {
     }
     @FXML
     protected void btnRest2MenuReadClick() throws IOException {
+        ta6.setText("");
         String url = "https://danyi-erdosdavid-eloadas-beadando-3feladat.azurewebsites.net/szemelyek";
         String ID = tf19.getText();
         if(ID!=null)
@@ -602,8 +620,24 @@ public class MainController implements Initializable {
         gr12.setManaged(true);
     }
     @FXML
-    protected void btnRest2MenuUpdateClick() {
-
+    protected void btnRest2MenuUpdateClick() throws IOException {
+        ta7.setText("");
+        String ID = tf20.getText();
+        String nev = tf21.getText();
+        String osztaly = tf22.getText();
+        String url = "https://danyi-erdosdavid-eloadas-beadando-3feladat.azurewebsites.net/szemelyek"+"/"+ID;
+        URL postUrl = new URL(url);
+        httpsURLConnection = (HttpsURLConnection) postUrl.openConnection();
+        httpsURLConnection.setRequestMethod("PUT");
+        segéd1();
+        String params = "{\"nev\":\""+nev+"\", \"osztaly\":\""+osztaly+"\"}";
+        segéd2(params);
+        String response = segéd3(HttpsURLConnection.HTTP_OK);
+        if(!response.equals("Hiba!!!")) {
+            ta7.setText(response);
+        } else {
+            ta7.setText("A vizsgázó módosítása sajnos nem sikerült.");
+        }
     }
     @FXML
     protected void rest2MenuDeleteClick() {
@@ -614,8 +648,20 @@ public class MainController implements Initializable {
         gr13.setManaged(true);
     }
     @FXML
-    protected void btnRest2MenuDeleteClick() {
-
+    protected void btnRest2MenuDeleteClick() throws IOException {
+        ta8.setText("");
+        String ID = tf23.getText();
+        String url = "https://danyi-erdosdavid-eloadas-beadando-3feladat.azurewebsites.net/szemelyek"+"/"+ID;
+        URL postUrl = new URL(url);
+        httpsURLConnection = (HttpsURLConnection) postUrl.openConnection();
+        httpsURLConnection.setRequestMethod("DELETE");
+        segéd1();
+        String response = segéd3(HttpsURLConnection.HTTP_OK);
+        if(!response.equals("Hiba!!!")) {
+            ta8.setText("Sikeresen törölte a vizsgázót!");
+        } else {
+            ta8.setText("A vizsgázó törlése sajnos nem sikerült.");
+        }
     }
     @FXML
     protected void soapKliensMenuLetöltés() {
