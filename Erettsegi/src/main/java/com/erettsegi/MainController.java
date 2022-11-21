@@ -29,6 +29,10 @@ public class MainController implements Initializable {
     @FXML public GridPane gr7;
     @FXML public GridPane gr8;
     @FXML public GridPane gr9;
+    @FXML public GridPane gr10;
+    @FXML public GridPane gr11;
+    @FXML public GridPane gr12;
+    @FXML public GridPane gr13;
     @FXML public TextField tf1;
     @FXML public TextField tf2;
     @FXML public TextField tf3;
@@ -45,10 +49,21 @@ public class MainController implements Initializable {
     @FXML public TextField tf14;
     @FXML public TextField tf15;
     @FXML public TextField tf16;
+    @FXML public TextField tf17;
+    @FXML public TextField tf18;
+    @FXML public TextField tf19;
+    @FXML public TextField tf20;
+    @FXML public TextField tf21;
+    @FXML public TextField tf22;
+    @FXML public TextField tf23;
     @FXML public TextArea ta1;
     @FXML public TextArea ta2;
     @FXML public TextArea ta3;
     @FXML public TextArea ta4;
+    @FXML public TextArea ta5;
+    @FXML public TextArea ta6;
+    @FXML public TextArea ta7;
+    @FXML public TextArea ta8;
     @FXML public ComboBox cb1;
     @FXML public ComboBox cb2;
     @FXML public ComboBox cb3;
@@ -105,6 +120,14 @@ public class MainController implements Initializable {
         gr8.setManaged(false);
         gr9.setVisible(false);
         gr9.setManaged(false);
+        gr10.setVisible(false);
+        gr10.setManaged(false);
+        gr11.setVisible(false);
+        gr11.setManaged(false);
+        gr12.setVisible(false);
+        gr12.setManaged(false);
+        gr13.setVisible(false);
+        gr13.setManaged(false);
         tv1.setVisible(false);
         tv1.setManaged(false);
         errorForSzures.setVisible(false);
@@ -535,18 +558,50 @@ public class MainController implements Initializable {
     }
     @FXML
     protected void rest2MenuCreateClick() {
+        ElemekTörlése();
+        clearControlUIData(tf17, tf18);
+        ta5.setText("");
+        gr10.setVisible(true);
+        gr10.setManaged(true);
+    }
+    @FXML
+    protected void btnRest2MenuCreateClick() {
 
     }
     @FXML
     protected void rest2MenuReadClick() {
+        ElemekTörlése();
+        clearControlUIData(tf19);
+        ta6.setText("");
+        gr11.setVisible(true);
+        gr11.setManaged(true);
+    }
+    @FXML
+    protected void btnRest2MenuReadClick() {
 
     }
     @FXML
     protected void rest2MenuUpdateClick() {
+        ElemekTörlése();
+        clearControlUIData(tf20, tf21, tf22);
+        ta7.setText("");
+        gr12.setVisible(true);
+        gr12.setManaged(true);
+    }
+    @FXML
+    protected void btnRest2MenuUpdateClick() {
 
     }
     @FXML
     protected void rest2MenuDeleteClick() {
+        ElemekTörlése();
+        clearControlUIData(tf23);
+        ta8.setText("");
+        gr13.setVisible(true);
+        gr13.setManaged(true);
+    }
+    @FXML
+    protected void btnRest2MenuDeleteClick() {
 
     }
     @FXML
