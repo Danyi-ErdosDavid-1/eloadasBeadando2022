@@ -14,6 +14,7 @@ import org.hibernate.cfg.Configuration;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
@@ -99,8 +100,8 @@ public class MainController implements Initializable {
     Connection connection;
     Statement statement;
     PreparedStatement preparedStatement;
-    static String token = "cf80eff8acb5840b59b220e16e409ea4589bae9a86bc4a4cf4c806f8edfe23b8";
-    static HttpsURLConnection httpsURLConnection;
+    final String token = "cf80eff8acb5840b59b220e16e409ea4589bae9a86bc4a4cf4c806f8edfe23b8";
+    HttpsURLConnection httpsURLConnection;
     protected void ElemekTörlése() {
         gr1.setVisible(false);
         gr1.setManaged(false);
@@ -577,8 +578,20 @@ public class MainController implements Initializable {
         gr11.setManaged(true);
     }
     @FXML
-    protected void btnRest2MenuReadClick() {
-
+    protected void btnRest2MenuReadClick() throws IOException {
+        String url = "https://danyi-erdosdavid-eloadas-beadando-3feladat.azurewebsites.net/szemelyek";
+        String ID = tf19.getText();
+        if(ID!=null)
+            url=url+"/"+ID;
+        URL usersUrl = new URL(url);
+        httpsURLConnection = (HttpsURLConnection) usersUrl.openConnection();
+        httpsURLConnection.setRequestMethod("GET");
+        String response = segéd3(HttpsURLConnection.HTTP_OK);
+        if(!response.equals("Hiba!!!")) {
+            ta6.setText(response);
+        } else {
+            ta6.setText("Nincs vizsgázó ilyen azonosítóval az adatbázisban.");
+        }
     }
     @FXML
     protected void rest2MenuUpdateClick() {
