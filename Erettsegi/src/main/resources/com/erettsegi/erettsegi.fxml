@@ -246,7 +246,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
         <children>
-            <Label text="Lekérhet egy vagy több user-t a https://gorest.co.in szerverről!" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Lekérhet egy user-t a https://gorest.co.in szerverről!" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label text="Ha megad egy konkrét ID-t és létezik a szerveren, megkapja a konkrét személyt." GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <Label text="Ha üresen hagyja, az összes user-t visszaadja (JSON formátumban)." GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <TextField fx:id="tf6" promptText="User ID" GridPane.columnIndex="1" GridPane.rowIndex="5" />
@@ -347,7 +347,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
         <children>
-            <Label text="Törölhet egy már létező user-t a https://gorest.co.in szerverről! (kötelező mező)" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Törölhet egy már létező user-t a https://gorest.co.in szerverről!" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label text="Adja meg a törölni kívánt user ID-ját:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <TextField fx:id="tf16" promptText="id" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Button mnemonicParsing="false" onAction="#btnRest1MenuDeleteClick" text="User törlése" GridPane.columnIndex="1" GridPane.rowIndex="5" />
