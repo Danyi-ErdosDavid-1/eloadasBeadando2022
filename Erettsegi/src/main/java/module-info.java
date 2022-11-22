@@ -7,6 +7,7 @@ module com.erettsegi {
     requires org.hibernate.orm.core;
     requires spring.data.commons;
     requires mysql.connector.java;
+    requires weka.stable;
     opens com.erettsegi to javafx.fxml;
     exports com.erettsegi;
 }

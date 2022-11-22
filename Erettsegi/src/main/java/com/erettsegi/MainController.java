@@ -33,6 +33,7 @@ public class MainController implements Initializable {
     @FXML public GridPane gr11;
     @FXML public GridPane gr12;
     @FXML public GridPane gr13;
+    @FXML public GridPane gr14;
     @FXML public TextField tf1;
     @FXML public TextField tf2;
     @FXML public TextField tf3;
@@ -128,6 +129,8 @@ public class MainController implements Initializable {
         gr12.setManaged(false);
         gr13.setVisible(false);
         gr13.setManaged(false);
+        gr14.setVisible(false);
+        gr14.setManaged(false);
         tv1.setVisible(false);
         tv1.setManaged(false);
         errorForSzures.setVisible(false);
@@ -677,7 +680,15 @@ public class MainController implements Initializable {
     }
     @FXML
     protected void adatbányászatMenuDöntésiFa() {
-
+        ElemekTörlése();
+        gr14.setVisible(true);
+        gr14.setManaged(true);
+    }
+    @FXML
+    protected void btnAdatbányászatMenuDöntésiFa() {
+        String fájlNév = "data/vote.arff";
+        int classIndex = 16;
+        new GépiTanulás1(fájlNév, classIndex);
     }
     @FXML
     protected void adatbányászatMenuTöbbAlgoritmus() {

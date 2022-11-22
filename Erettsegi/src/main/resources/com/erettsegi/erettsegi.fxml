@@ -136,8 +136,8 @@
    <GridPane fx:id="gr2">
      <columnConstraints>
          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
-       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+       <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
+       <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
      </columnConstraints>
      <rowConstraints>
        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -158,7 +158,7 @@
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="200.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -212,7 +212,7 @@
     <GridPane fx:id="gr5">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="200.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="200.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="200.0" />
         </columnConstraints>
         <rowConstraints>
@@ -232,7 +232,7 @@
     <GridPane fx:id="gr6">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="200.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="200.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="200.0" />
         </columnConstraints>
         <rowConstraints>
@@ -258,7 +258,7 @@
     <GridPane fx:id="gr7">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="200.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="200.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="200.0" />
         </columnConstraints>
         <rowConstraints>
@@ -294,7 +294,7 @@
     <GridPane fx:id="gr8">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="200.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="200.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="200.0" />
         </columnConstraints>
         <rowConstraints>
@@ -334,7 +334,7 @@
     <GridPane fx:id="gr9">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="200.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="200.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="200.0" />
         </columnConstraints>
         <rowConstraints>
@@ -358,8 +358,8 @@
     <GridPane fx:id="gr10">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="300.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="300.0" prefWidth="300.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -388,8 +388,8 @@
     <GridPane fx:id="gr11">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="300.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="300.0" prefWidth="300.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -416,8 +416,8 @@
     <GridPane fx:id="gr12">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="300.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="300.0" prefWidth="300.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -450,8 +450,8 @@
     <GridPane fx:id="gr13">
         <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="300.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="200.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="300.0" prefWidth="300.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -471,6 +471,28 @@
             <Button mnemonicParsing="false" onAction="#btnRest2MenuDeleteClick" text="Vizsgázó törlése" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <Label text="A törlés eredménye:" GridPane.columnIndex="1" GridPane.rowIndex="7" />
             <TextArea fx:id="ta8" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+        </children>
+    </GridPane>
+    <GridPane fx:id="gr14">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="300.0" prefWidth="300.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+        <children>
+            <Label text="Próbáljuk meg döntési fával a kiválasztott attribútumot előrejelezni." GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Én a vote.arff fájlt választottam, ahol az adatsorok utolsó attribútumának" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label text="adatai ezek lehetnek: { democrat, republican }" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label text="A gombra kattintás után az eredményt a Döntési fa.txt -ben találjuk." GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Button mnemonicParsing="false" onAction="#btnAdatbányászatMenuDöntésiFa" text="Osztályozás döntési fával: start" GridPane.columnIndex="1" GridPane.rowIndex="6" />
         </children>
     </GridPane>
 </VBox>
