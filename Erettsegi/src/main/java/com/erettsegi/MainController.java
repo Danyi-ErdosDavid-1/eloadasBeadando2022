@@ -8,14 +8,23 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import weka.classifiers.bayes.NaiveBayes;
+import weka.classifiers.functions.SMO;
+import weka.classifiers.lazy.IBk;
+import weka.classifiers.trees.J48;
+import weka.classifiers.trees.RandomForest;
+import weka.core.Utils;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
 import java.net.URL;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class MainController implements Initializable {
@@ -34,6 +43,7 @@ public class MainController implements Initializable {
     @FXML public GridPane gr12;
     @FXML public GridPane gr13;
     @FXML public GridPane gr14;
+    @FXML public GridPane gr15;
     @FXML public TextField tf1;
     @FXML public TextField tf2;
     @FXML public TextField tf3;
@@ -65,6 +75,7 @@ public class MainController implements Initializable {
     @FXML public TextArea ta6;
     @FXML public TextArea ta7;
     @FXML public TextArea ta8;
+    @FXML public TextArea ta9;
     @FXML public ComboBox cb1;
     @FXML public ComboBox cb2;
     @FXML public ComboBox cb3;
@@ -131,6 +142,8 @@ public class MainController implements Initializable {
         gr13.setManaged(false);
         gr14.setVisible(false);
         gr14.setManaged(false);
+        gr15.setVisible(false);
+        gr15.setManaged(false);
         tv1.setVisible(false);
         tv1.setManaged(false);
         errorForSzures.setVisible(false);
@@ -692,7 +705,40 @@ public class MainController implements Initializable {
     }
     @FXML
     protected void adatbányászatMenuTöbbAlgoritmus() {
-
+        ElemekTörlése();
+        gr15.setVisible(true);
+        gr15.setManaged(true);
+    }
+    @FXML
+    protected void btnAdatbányászatMenuTöbbAlgoritmus() throws Exception {
+        String fájlNév = "data/vote.arff";
+        int classIndex = 16;
+        PrintWriter kiir = new PrintWriter("Gépi tanulás.txt");
+        String bestCorrectlyCIClassName = "";
+        List<String[]> list = new ArrayList<String[]>();
+        String[] arr1 = new GépiTanulás2CrossValidation(fájlNév, classIndex, new J48(), kiir, "Döntési fa").getImportantData();
+        String[] arr2 = new GépiTanulás2CrossValidation(fájlNév, classIndex, new SMO(), kiir, "Support-vector machine").getImportantData();
+        String[] arr3 = new GépiTanulás2CrossValidation(fájlNév, classIndex, new NaiveBayes(), kiir, "NaiveBayes").getImportantData();
+        IBk classifier = new IBk();
+        classifier.setOptions(Utils.splitOptions("-K 10"));
+        String[]arr4 = new GépiTanulás2CrossValidation(fájlNév, classIndex, classifier, kiir, "K-legközelebbi szomszéd").getImportantData();
+        String[] arr5 = new GépiTanulás2CrossValidation(fájlNév, classIndex, new RandomForest(), kiir, "RandomForest").getImportantData();
+        kiir.close();
+        double bestCorrClassIns = 0.0;
+        list.add(arr1);
+        list.add(arr2);
+        list.add(arr3);
+        list.add(arr4);
+        list.add(arr5);
+        for(int i = 0; i < list.size(); i++) {
+            double value = Double.parseDouble(list.get(i)[0]);
+            if(value > bestCorrClassIns) {
+                bestCorrClassIns = value;
+                bestCorrectlyCIClassName = list.get(i)[1];
+            }
+        }
+        ta9.setText(bestCorrectlyCIClassName);
+        ta9.setFont(new Font(36.0));
     }
     @FXML
     protected void adatbányászatMenuTöbbAlgoritmus2() {

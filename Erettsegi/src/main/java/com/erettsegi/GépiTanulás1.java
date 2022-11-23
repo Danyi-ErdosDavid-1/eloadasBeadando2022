@@ -52,7 +52,6 @@ public class GépiTanulás1 {
             kiir.println("TP+TN="+(TP+TN));
             kiir.println("FP+FN="+(FP+FN));
             kiir.close();
-            System.out.println("Sikeres művelet!");
         }
         catch (Exception e) {
             System.out.println("Error Occurred!!!! \n" + e.getMessage());
