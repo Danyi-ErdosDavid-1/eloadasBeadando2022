@@ -44,6 +44,7 @@ public class MainController implements Initializable {
     @FXML public GridPane gr13;
     @FXML public GridPane gr14;
     @FXML public GridPane gr15;
+    @FXML public GridPane gr16;
     @FXML public TextField tf1;
     @FXML public TextField tf2;
     @FXML public TextField tf3;
@@ -76,10 +77,12 @@ public class MainController implements Initializable {
     @FXML public TextArea ta7;
     @FXML public TextArea ta8;
     @FXML public TextArea ta9;
+    @FXML public TextArea ta10;
     @FXML public ComboBox cb1;
     @FXML public ComboBox cb2;
     @FXML public ComboBox cb3;
     @FXML public ComboBox cb4;
+    @FXML public ComboBox cb5;
     @FXML public CheckBox ch1;
     @FXML public CheckBox ch2;
     @FXML public CheckBox ch3;
@@ -144,6 +147,8 @@ public class MainController implements Initializable {
         gr14.setManaged(false);
         gr15.setVisible(false);
         gr15.setManaged(false);
+        gr16.setVisible(false);
+        gr16.setManaged(false);
         tv1.setVisible(false);
         tv1.setManaged(false);
         errorForSzures.setVisible(false);
@@ -166,9 +171,11 @@ public class MainController implements Initializable {
     @FXML
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ElemekTörlése();
         cb1.getItems().addAll("Magyar nyelv és irodalom", "Történelem", "Matematika", "Informatika", "Fizika", "Kémia", "Angol", "Német", "Földrajz", "Biológia");
         cb1.getSelectionModel().select("Magyar nyelv és irodalom");
-        ElemekTörlése();
+        cb5.getItems().addAll("Döntési fa", "Support-vector machine", "NaiveBayes", "K-legközelebbi szomszéd", "RandomForest");
+        cb5.getSelectionModel().select("Döntési fa");
         try {
             initConfig();
         } catch (SQLException e) {
@@ -406,7 +413,6 @@ public class MainController implements Initializable {
             preparedStatement = connection.prepareStatement("DELETE FROM vizsga WHERE vizsgazoaz = ? AND vizsgatargyaz = ?");
             preparedStatement.setString(1, cb3.getValue() + "");
             preparedStatement.setString(2, cb4.getValue() + "");
-            System.out.println(preparedStatement.toString());
             errorForVizsgaTorles.setVisible(false);
             errorForVizsgaTorles.setManaged(false);
             errorForVizsgaTorles2.setVisible(false);
@@ -742,7 +748,44 @@ public class MainController implements Initializable {
     }
     @FXML
     protected void adatbányászatMenuTöbbAlgoritmus2() {
-
+        ElemekTörlése();
+        gr16.setVisible(true);
+        gr16.setManaged(true);
+        ta10.setText("");
+    }
+    @FXML
+    protected void btnAdatbányászatMenuTöbbAlgoritmus2() throws Exception {
+        String fájlNév = "data/vote.arff";
+        int classIndex = 16;
+        ta10.setText("");
+        List<String> data = new ArrayList<String>();
+        String algoritmus = cb5.getValue() + "";
+        switch(algoritmus) {
+            case "Döntési fa":
+                data = new GépiTanulás3CrossValidation(fájlNév, classIndex, new J48()).getData();
+                break;
+            case "Support-vector machine":
+                data = new GépiTanulás3CrossValidation(fájlNév, classIndex, new SMO()).getData();
+                break;
+            case "NaiveBayes":
+                data = new GépiTanulás3CrossValidation(fájlNév, classIndex, new NaiveBayes()).getData();
+                break;
+            case "K-legközelebbi szomszéd":
+                IBk classifier = new IBk();
+                classifier.setOptions(Utils.splitOptions("-K 10"));
+                data = new GépiTanulás3CrossValidation(fájlNév, classIndex, classifier).getData();
+                break;
+            case "RandomForest":
+                data = new GépiTanulás3CrossValidation(fájlNév, classIndex, new RandomForest()).getData();
+                break;
+        }
+        setTextArea10(data);
+    }
+    protected void setTextArea10(List<String> data) {
+        String text = "";
+        for(String d : data) text += d;
+        ta10.setText(text);
+        ta10.setFont(new Font(25.0));
     }
     @FXML
     protected void egyébMenuPárhuzamos() {

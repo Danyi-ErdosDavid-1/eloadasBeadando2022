@@ -11,17 +11,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class GépiTanulás2CrossValidation {
-
-    static double sumOfCorrectlyClassifiedInstances;
-    static String algoritmusNév;
-    GépiTanulás2CrossValidation(String fájlNév, int classIndex, Classifier classifier, PrintWriter kiir, String algoritmusNév) throws FileNotFoundException {
+public class GépiTanulás3CrossValidation {
+    List<String> data = new ArrayList<String>();
+    GépiTanulás3CrossValidation(String fájlNév, int classIndex, Classifier classifier) {
         try {
-            this.algoritmusNév = algoritmusNév;
             PlainText plainText = new PlainText();
             StringBuffer stringBuffer = new StringBuffer();
             plainText.setBuffer(stringBuffer);
-            kiir.println("\nclassifier.getClass():" + classifier.getClass());
             BufferedReader bufferedReader = new BufferedReader(new FileReader(fájlNév));
             Instances instances = new Instances(bufferedReader);
             instances.setClassIndex(classIndex);
@@ -43,9 +39,8 @@ public class GépiTanulás2CrossValidation {
                 index++;
             }
 
-            sumOfCorrectlyClassifiedInstances = 100*evaluation.correct()/instances.size();
-            kiir.println("\nCorrectly Classified Instances:"+(int)evaluation.correct()+"\t"+100*evaluation.correct()/instances.size()+"%");
-            kiir.println("\nIncorrectly Classified Instances:"+(instances.size()-(int)evaluation.correct())+"\t"+100*(instances.size()-evaluation.correct())/instances.size()+"%");
+            data.add("Correctly Classified Instances:"+(int)evaluation.correct()+"\t"+100*evaluation.correct()/instances.size()+"%");
+            data.add("\nIncorrectly Classified Instances:"+(instances.size()-(int)evaluation.correct())+"\t"+100*(instances.size()-evaluation.correct())/instances.size()+"%");
 
             int TP=0, TN=0, FP=0, FN=0;
             //  TP:TP, TN:trueNegative, FP:falsePositive, FN:falseNegative
@@ -59,19 +54,14 @@ public class GépiTanulás2CrossValidation {
                 if((((Instances)instances).get(i)).classValue()==0 && eredmeny.get(i)==0)
                     TN++;
             }
-            kiir.println("\nTP="+TP+", "+"TN="+TN+", "+"FP="+FP+", "+"FN="+FN);
-
-            kiir.println("--------------------------------------------");
+            data.add("\nTP="+TP+", "+"TN="+TN+", "+"FP="+FP+", "+"FN="+FN);
         }
         catch (Exception e) {
             System.out.println("Error Occurred!!!! \n" + e.getMessage());
         }
     }
 
-    public static String[] getImportantData() {
-        String[] arr = new String[2];
-        arr[0] = sumOfCorrectlyClassifiedInstances + "";
-        arr[1] = algoritmusNév;
-        return arr;
-    };
+    public List<String> getData() {
+        return data;
+    }
 }
