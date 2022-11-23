@@ -378,23 +378,25 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
         <children>
             <Label text="NAGYON FONTOS!!! MIELŐTT A REST2 MENÜBEN BÁRMIT CSINÁLNA, KÉREM NYISSA MEG A CHROME-BAN / FIREFOX-BAN" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label text="AZ AZURE-BA FELTÖLTÖTT REST SZERVEREM EGYIK API URL-JÉT, EZT:" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label text="AZ AZURE-BA FELTÖLTÖTT REST SZERVEREM EGYIK API URL-JÉT (UGYE SIMA JSON-T FOG VISSZAADNI), EZT:" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <TextField text="https://danyi-erdosdavid-eloadas-beadando-3feladat.azurewebsites.net/szemelyek" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Label text="  , ÉS EZT AZ URL-T HASZNÁLJA! 3-4 PERCIG (VAGY TOVÁBB) IS ELTARTHAT, MIRE BETÖLT (LEGOLCSÓBB CSOMAGOT VÁLASZTOTTAM)." textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Label text="EZEN OLDAL BETÖLTÉSE NÉLKÜL AZ ALKALMAZÁSBAN EZ A MENÜPONT - REST2 - NEM FOG EREDMÉNYT VISSZAADNI ÉS" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <Label text="LEFAGYASZTJA AZ ALKALMAZÁST, EZÉRT NAGYON FONTOS! KÖSZÖNÖM!" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <Label text="A létrehozott REST szerverem alap URL-je ez: https://danyi-erdosdavid-eloadas-beadando-3feladat.azurewebsites.net" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-            <Label text="Létrehozhat egy új vizsgázó személyt a fent említett szerver vizsgazo táblájában! (kötelező mezők)" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-            <Label text="Új vizsgázó neve:" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-            <TextField fx:id="tf17" promptText="új vizsgázó neve" GridPane.columnIndex="1" GridPane.rowIndex="11" />
-            <Label text="Új vizsgázó osztálya:" GridPane.columnIndex="1" GridPane.rowIndex="12" />
-            <TextField fx:id="tf18" promptText="új vizsgázó osztálya" GridPane.columnIndex="1" GridPane.rowIndex="13" />
-            <Button mnemonicParsing="false" onAction="#btnRest2MenuCreateClick" text="Vizsgázó létrehozása" GridPane.columnIndex="1" GridPane.rowIndex="14" />
-            <Label text="A létrehozás eredménye:" GridPane.columnIndex="1" GridPane.rowIndex="15" />
-            <TextArea fx:id="ta5" GridPane.columnIndex="1" GridPane.rowIndex="16" />
+            <Label text="VALAMIÉRT KELL EZ A 'TRIGGERELÉS' A MŰKÖDÉSHEZ..UTÁNA MÁR BEZÁRHATJA AZ OLDALT (MONDJUK NEM TUDOM 'MEDDIG TART KI A HATÁSA')." textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label text="TEHÁT EZEN OLDAL BETÖLTÉSE NÉLKÜL AZ ALKALMAZÁSBAN EZ A MENÜPONT - REST2 - NEM FOG EREDMÉNYT VISSZAADNI ÉS" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label text="LEFAGYASZTJA AZ ALKALMAZÁST, EZÉRT NAGYON FONTOS! KÖSZÖNÖM!" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Label text="A létrehozott REST szerverem alap URL-je ez: https://danyi-erdosdavid-eloadas-beadando-3feladat.azurewebsites.net" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <Label text="Létrehozhat egy új vizsgázó személyt a fent említett szerver vizsgazo táblájában! (kötelező mezők)" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <Label text="Új vizsgázó neve:" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+            <TextField fx:id="tf17" promptText="új vizsgázó neve" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+            <Label text="Új vizsgázó osztálya:" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+            <TextField fx:id="tf18" promptText="új vizsgázó osztálya" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+            <Button mnemonicParsing="false" onAction="#btnRest2MenuCreateClick" text="Vizsgázó létrehozása" GridPane.columnIndex="1" GridPane.rowIndex="15" />
+            <Label text="A létrehozás eredménye:" GridPane.columnIndex="1" GridPane.rowIndex="16" />
+            <TextArea fx:id="ta5" GridPane.columnIndex="1" GridPane.rowIndex="17" />
         </children>
     </GridPane>
     <GridPane fx:id="gr11">
@@ -419,22 +421,24 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
         <children>
             <Label text="NAGYON FONTOS!!! MIELŐTT A REST2 MENÜBEN BÁRMIT CSINÁLNA, KÉREM NYISSA MEG A CHROME-BAN / FIREFOX-BAN" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label text="AZ AZURE-BA FELTÖLTÖTT REST SZERVEREM EGYIK API URL-JÉT, EZT:" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label text="AZ AZURE-BA FELTÖLTÖTT REST SZERVEREM EGYIK API URL-JÉT (UGYE SIMA JSON-T FOG VISSZAADNI), EZT:" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <TextField text="https://danyi-erdosdavid-eloadas-beadando-3feladat.azurewebsites.net/szemelyek" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Label text="  , ÉS EZT AZ URL-T HASZNÁLJA! 3-4 PERCIG (VAGY TOVÁBB) IS ELTARTHAT, MIRE BETÖLT (LEGOLCSÓBB CSOMAGOT VÁLASZTOTTAM)." textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Label text="EZEN OLDAL BETÖLTÉSE NÉLKÜL AZ ALKALMAZÁSBAN EZ A MENÜPONT - REST2 - NEM FOG EREDMÉNYT VISSZAADNI ÉS" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <Label text="LEFAGYASZTJA AZ ALKALMAZÁST, EZÉRT NAGYON FONTOS! KÖSZÖNÖM!" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <Label text="A létrehozott REST szerverem alap URL-je ez: https://danyi-erdosdavid-eloadas-beadando-3feladat.azurewebsites.net" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-            <Label text="Lekérhet egy vizsgázó személyt a fent említett szerver vizsgazo táblájából!" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-            <Label text="Ha megad egy konkrét azonosítószámot és létezik a szerveren, megkapja a konkrét vizsgázót." GridPane.columnIndex="1" GridPane.rowIndex="10" />
-            <Label text="Ha üresen hagyja, az összes vizsgázót megkapja (JSON formátumban)." GridPane.columnIndex="1" GridPane.rowIndex="11" />
-            <TextField fx:id="tf19" promptText="vizsgázó azonosítója" GridPane.columnIndex="1" GridPane.rowIndex="12" />
-            <Button mnemonicParsing="false" onAction="#btnRest2MenuReadClick" text="Vizsgázó lekérdezése" GridPane.columnIndex="1" GridPane.rowIndex="13" />
-            <Label text="A lekérdezett vizsgázó(k) JSON listája:" GridPane.columnIndex="1" GridPane.rowIndex="14" />
-            <TextArea fx:id="ta6" GridPane.columnIndex="1" GridPane.rowIndex="15" />
+            <Label text="VALAMIÉRT KELL EZ A 'TRIGGERELÉS' A MŰKÖDÉSHEZ..UTÁNA MÁR BEZÁRHATJA AZ OLDALT (MONDJUK NEM TUDOM 'MEDDIG TART KI A HATÁSA')." textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label text="TEHÁT EZEN OLDAL BETÖLTÉSE NÉLKÜL AZ ALKALMAZÁSBAN EZ A MENÜPONT - REST2 - NEM FOG EREDMÉNYT VISSZAADNI ÉS" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label text="LEFAGYASZTJA AZ ALKALMAZÁST, EZÉRT NAGYON FONTOS! KÖSZÖNÖM!" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Label text="A létrehozott REST szerverem alap URL-je ez: https://danyi-erdosdavid-eloadas-beadando-3feladat.azurewebsites.net" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <Label text="Lekérhet egy vizsgázó személyt a fent említett szerver vizsgazo táblájából!" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <Label text="Ha megad egy konkrét azonosítószámot és létezik a szerveren, megkapja a konkrét vizsgázót." GridPane.columnIndex="1" GridPane.rowIndex="11" />
+            <Label text="Ha üresen hagyja, az összes vizsgázót megkapja (JSON formátumban)." GridPane.columnIndex="1" GridPane.rowIndex="12" />
+            <TextField fx:id="tf19" promptText="vizsgázó azonosítója" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+            <Button mnemonicParsing="false" onAction="#btnRest2MenuReadClick" text="Vizsgázó lekérdezése" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+            <Label text="A lekérdezett vizsgázó(k) JSON listája:" GridPane.columnIndex="1" GridPane.rowIndex="15" />
+            <TextArea fx:id="ta6" GridPane.columnIndex="1" GridPane.rowIndex="16" />
         </children>
     </GridPane>
     <GridPane fx:id="gr12">
@@ -462,25 +466,27 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
         <children>
             <Label text="NAGYON FONTOS!!! MIELŐTT A REST2 MENÜBEN BÁRMIT CSINÁLNA, KÉREM NYISSA MEG A CHROME-BAN / FIREFOX-BAN" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label text="AZ AZURE-BA FELTÖLTÖTT REST SZERVEREM EGYIK API URL-JÉT, EZT:" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label text="AZ AZURE-BA FELTÖLTÖTT REST SZERVEREM EGYIK API URL-JÉT (UGYE SIMA JSON-T FOG VISSZAADNI), EZT:" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <TextField text="https://danyi-erdosdavid-eloadas-beadando-3feladat.azurewebsites.net/szemelyek" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Label text="  , ÉS EZT AZ URL-T HASZNÁLJA! 3-4 PERCIG (VAGY TOVÁBB) IS ELTARTHAT, MIRE BETÖLT (LEGOLCSÓBB CSOMAGOT VÁLASZTOTTAM)." textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Label text="EZEN OLDAL BETÖLTÉSE NÉLKÜL AZ ALKALMAZÁSBAN EZ A MENÜPONT - REST2 - NEM FOG EREDMÉNYT VISSZAADNI ÉS" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <Label text="LEFAGYASZTJA AZ ALKALMAZÁST, EZÉRT NAGYON FONTOS! KÖSZÖNÖM!" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <Label text="A létrehozott REST szerverem alap URL-je ez: https://danyi-erdosdavid-eloadas-beadando-3feladat.azurewebsites.net" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-            <Label text="Módosíthat egy már létező vizsgázót a fent említett szerveren lévő vizsgazo táblában! (kötelező mezők)" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-            <Label text="Vizsgázó azonosítója:" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-            <TextField fx:id="tf20" promptText="módosítandó vizsgázó azonosítója" GridPane.columnIndex="1" GridPane.rowIndex="11" />
-            <Label text="Vizsgázó új neve:" GridPane.columnIndex="1" GridPane.rowIndex="12" />
-            <TextField fx:id="tf21" promptText="vizsgázó új neve" GridPane.columnIndex="1" GridPane.rowIndex="13" />
-            <Label text="Vizsgázó új osztálya:" GridPane.columnIndex="1" GridPane.rowIndex="14" />
-            <TextField fx:id="tf22" promptText="vizsgázó új osztálya" GridPane.columnIndex="1" GridPane.rowIndex="15" />
-            <Button mnemonicParsing="false" onAction="#btnRest2MenuUpdateClick" text="Vizsgázó módosítása" GridPane.columnIndex="1" GridPane.rowIndex="16" />
-            <Label text="A módosítás eredménye:" GridPane.columnIndex="1" GridPane.rowIndex="17" />
-            <TextArea fx:id="ta7" GridPane.columnIndex="1" GridPane.rowIndex="18" />
+            <Label text="VALAMIÉRT KELL EZ A 'TRIGGERELÉS' A MŰKÖDÉSHEZ..UTÁNA MÁR BEZÁRHATJA AZ OLDALT (MONDJUK NEM TUDOM 'MEDDIG TART KI A HATÁSA')." textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label text="TEHÁT EZEN OLDAL BETÖLTÉSE NÉLKÜL AZ ALKALMAZÁSBAN EZ A MENÜPONT - REST2 - NEM FOG EREDMÉNYT VISSZAADNI ÉS" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label text="LEFAGYASZTJA AZ ALKALMAZÁST, EZÉRT NAGYON FONTOS! KÖSZÖNÖM!" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Label text="A létrehozott REST szerverem alap URL-je ez: https://danyi-erdosdavid-eloadas-beadando-3feladat.azurewebsites.net" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <Label text="Módosíthat egy már létező vizsgázót a fent említett szerveren lévő vizsgazo táblában! (kötelező mezők)" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <Label text="Vizsgázó azonosítója:" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+            <TextField fx:id="tf20" promptText="módosítandó vizsgázó azonosítója" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+            <Label text="Vizsgázó új neve:" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+            <TextField fx:id="tf21" promptText="vizsgázó új neve" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+            <Label text="Vizsgázó új osztálya:" GridPane.columnIndex="1" GridPane.rowIndex="15" />
+            <TextField fx:id="tf22" promptText="vizsgázó új osztálya" GridPane.columnIndex="1" GridPane.rowIndex="16" />
+            <Button mnemonicParsing="false" onAction="#btnRest2MenuUpdateClick" text="Vizsgázó módosítása" GridPane.columnIndex="1" GridPane.rowIndex="17" />
+            <Label text="A módosítás eredménye:" GridPane.columnIndex="1" GridPane.rowIndex="18" />
+            <TextArea fx:id="ta7" prefHeight="150.0" maxHeight="150.0" minHeight="150.0" GridPane.columnIndex="1" GridPane.rowIndex="19" />
         </children>
     </GridPane>
     <GridPane fx:id="gr13">
@@ -504,21 +510,23 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
         <children>
             <Label text="NAGYON FONTOS!!! MIELŐTT A REST2 MENÜBEN BÁRMIT CSINÁLNA, KÉREM NYISSA MEG A CHROME-BAN / FIREFOX-BAN" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label text="AZ AZURE-BA FELTÖLTÖTT REST SZERVEREM EGYIK API URL-JÉT, EZT:" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label text="AZ AZURE-BA FELTÖLTÖTT REST SZERVEREM EGYIK API URL-JÉT (UGYE SIMA JSON-T FOG VISSZAADNI), EZT:" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <TextField text="https://danyi-erdosdavid-eloadas-beadando-3feladat.azurewebsites.net/szemelyek" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Label text="  , ÉS EZT AZ URL-T HASZNÁLJA! 3-4 PERCIG (VAGY TOVÁBB) IS ELTARTHAT, MIRE BETÖLT (LEGOLCSÓBB CSOMAGOT VÁLASZTOTTAM)." textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Label text="EZEN OLDAL BETÖLTÉSE NÉLKÜL AZ ALKALMAZÁSBAN EZ A MENÜPONT - REST2 - NEM FOG EREDMÉNYT VISSZAADNI ÉS" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <Label text="LEFAGYASZTJA AZ ALKALMAZÁST, EZÉRT NAGYON FONTOS! KÖSZÖNÖM!" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <Label text="A létrehozott REST szerverem alap URL-je ez: https://danyi-erdosdavid-eloadas-beadando-3feladat.azurewebsites.net" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-            <Label text="Törölhet egy már létező vizsgázót a fent említett szerver vizsgazo táblájából!" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-            <Label text="Adja meg a törölni kívánt vizsgázó azonosítóját:" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-            <TextField fx:id="tf23" promptText="törlendő vizsgázó azonosítója" GridPane.columnIndex="1" GridPane.rowIndex="11" />
-            <Button mnemonicParsing="false" onAction="#btnRest2MenuDeleteClick" text="Vizsgázó törlése" GridPane.columnIndex="1" GridPane.rowIndex="12" />
-            <Label text="A törlés eredménye:" GridPane.columnIndex="1" GridPane.rowIndex="13" />
-            <TextArea fx:id="ta8" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+            <Label text="VALAMIÉRT KELL EZ A 'TRIGGERELÉS' A MŰKÖDÉSHEZ..UTÁNA MÁR BEZÁRHATJA AZ OLDALT (MONDJUK NEM TUDOM 'MEDDIG TART KI A HATÁSA')." textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label text="TEHÁT EZEN OLDAL BETÖLTÉSE NÉLKÜL AZ ALKALMAZÁSBAN EZ A MENÜPONT - REST2 - NEM FOG EREDMÉNYT VISSZAADNI ÉS" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Label text="LEFAGYASZTJA AZ ALKALMAZÁST, EZÉRT NAGYON FONTOS! KÖSZÖNÖM!" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Label text="A létrehozott REST szerverem alap URL-je ez: https://danyi-erdosdavid-eloadas-beadando-3feladat.azurewebsites.net" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <Label text="Törölhet egy már létező vizsgázót a fent említett szerver vizsgazo táblájából!" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <Label text="Adja meg a törölni kívánt vizsgázó azonosítóját:" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+            <TextField fx:id="tf23" promptText="törlendő vizsgázó azonosítója" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+            <Button mnemonicParsing="false" onAction="#btnRest2MenuDeleteClick" text="Vizsgázó törlése" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+            <Label text="A törlés eredménye:" GridPane.columnIndex="1" GridPane.rowIndex="14" />
+            <TextArea fx:id="ta8" GridPane.columnIndex="1" GridPane.rowIndex="15" />
         </children>
     </GridPane>
     <GridPane fx:id="gr14">
