@@ -81,5 +81,3 @@ GépiTanulás1: Vizsgálat részletesen, egyesével:
 42	1.0	1.0
 
 TP=18, TN=23, FP=1, FN=1
-TP+TN=41
-FP+FN=2

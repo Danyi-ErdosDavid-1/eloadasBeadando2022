@@ -486,6 +486,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
         <children>
             <Label text="Próbáljuk meg döntési fával a kiválasztott attribútumot előrejelezni." GridPane.columnIndex="1" GridPane.rowIndex="2" />
@@ -493,6 +494,7 @@
             <Label text="adatai ezek lehetnek: { democrat, republican }" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Label text="A gombra kattintás után az eredményt a Döntési fa.txt -ben találjuk." GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <Button mnemonicParsing="false" onAction="#btnAdatbányászatMenuDöntésiFa" text="Osztályozás döntési fával: start" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label fx:id="döntésiFaMsg" text="" GridPane.columnIndex="1" GridPane.rowIndex="7" />
         </children>
     </GridPane>
     <GridPane fx:id="gr15">

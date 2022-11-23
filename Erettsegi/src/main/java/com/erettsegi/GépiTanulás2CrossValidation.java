@@ -32,13 +32,21 @@ public class GépiTanulás2CrossValidation {
             String[] lines = stringBuffer.toString().split("\n");
             int index = 0;
             for(String line : lines) {
+                //System.out.println(line); --- ezt kiíratva láthatjuk többek között a kiértékelő halmaz minden egyedére a valós és predikált értékeket
                 if(index > 0) {
                     String[] data = line.split("[: +]");
-                    if(data.length == 19) {
-                        eredmeny.add(Double.parseDouble(data[18]));
-                    } else {
-                        eredmeny.add(Double.parseDouble(data[19]));
-                    }
+                    // A data[9] és data[11] tömbelemek vagy számokat (1 vagy 2), vagy szavakat (democrat vagy republican) tartalmaznak, amelyek
+                    // valójában a valós és megjósolt értékeknek feleltethetők meg - a democrat 1-re, a republican 2-re képezhető -,
+                    // még pontosabban a data[9] a valós, a data[11] a jósolt eredmény. És ezen értékek összehasonlításából (8 eset lehetséges) megállapítható,
+                    // hogy az algoritmus "jóslása" helyes volt-e vagy nem, így adva hozzá az eredmeny nevű tömbhöz 1.0 -t, ha helyes volt, 0.0 -t, ha nem:
+                    if(data[9].startsWith("1") && data[11].startsWith("1")) eredmeny.add(1.0); // 1. eset
+                    if(data[9].startsWith("2") && data[11].startsWith("2")) eredmeny.add(1.0); // 2. eset
+                    if(data[9].startsWith("d") && data[11].startsWith("d")) eredmeny.add(1.0); // 3. eset
+                    if(data[9].startsWith("r") && data[11].startsWith("r")) eredmeny.add(1.0); // 4. eset
+                    if((data[9].startsWith("1") && data[11].startsWith("2")) ||
+                            data[9].startsWith("2") && data[11].startsWith("1")) eredmeny.add(0.0); // 5. és 6. eset
+                    if((data[9].startsWith("d") && data[11].startsWith("r")) ||
+                            data[9].startsWith("r") && data[11].startsWith("d")) eredmeny.add(0.0); // 7. és 8. eset
                 }
                 index++;
             }
@@ -60,7 +68,6 @@ public class GépiTanulás2CrossValidation {
                     TN++;
             }
             kiir.println("\nTP="+TP+", "+"TN="+TN+", "+"FP="+FP+", "+"FN="+FN);
-
             kiir.println("--------------------------------------------");
         }
         catch (Exception e) {

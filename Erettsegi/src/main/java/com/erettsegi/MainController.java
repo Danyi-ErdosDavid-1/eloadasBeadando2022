@@ -1,5 +1,6 @@
 package com.erettsegi;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -23,9 +24,7 @@ import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
 import java.net.URL;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class MainController implements Initializable {
     @FXML public TableView tv1;
@@ -101,6 +100,7 @@ public class MainController implements Initializable {
     @FXML public Label msgForVizsgaTorles;
     @FXML public Label errorForVizsgaTorles;
     @FXML public Label errorForVizsgaTorles2;
+    @FXML public Label döntésiFaMsg;
     @FXML public TableColumn<Vizsgaadatok, Integer> vizsgazoAzonCol;
     @FXML public TableColumn<Vizsgaadatok, String> nevCol;
     @FXML public TableColumn<Vizsgaadatok, String> osztalyCol;
@@ -192,6 +192,17 @@ public class MainController implements Initializable {
     }
     protected void clearControlUIData(TextField... tfList) {
         for(TextField tf : tfList) tf.setText("");
+    }
+    protected void setTimerForLabel(Label label) {
+        Timer tm = new Timer();
+        tm.schedule(new TimerTask(){
+            @Override
+            public void run() {
+                Platform.runLater(() -> {
+                    label.setText("");
+                });
+            }
+        },3000);
     }
     protected void initTable() {
         ElemekTörlése();
@@ -367,6 +378,7 @@ public class MainController implements Initializable {
             preparedStatement.executeUpdate();
             msgForVizsgazoHozzaadas.setVisible(true);
             msgForVizsgazoHozzaadas.setManaged(true);
+            setTimerForLabel(msgForVizsgazoHozzaadas);
             tf2.setText("");
             tf3.setText("");
         }
@@ -396,6 +408,7 @@ public class MainController implements Initializable {
             }
             msgForVizsgazoModositas.setVisible(true);
             msgForVizsgazoModositas.setManaged(true);
+            setTimerForLabel(msgForVizsgazoModositas);
             tf4.setText("");
             tf5.setText("");
         }
@@ -423,6 +436,7 @@ public class MainController implements Initializable {
             } else {
                 msgForVizsgaTorles.setVisible(true);
                 msgForVizsgaTorles.setManaged(true);
+                setTimerForLabel(msgForVizsgaTorles);
             };
         }
         cb3.getItems().removeAll(cb3.getItems());
@@ -700,6 +714,7 @@ public class MainController implements Initializable {
     @FXML
     protected void adatbányászatMenuDöntésiFa() {
         ElemekTörlése();
+        döntésiFaMsg.setText("");
         gr14.setVisible(true);
         gr14.setManaged(true);
     }
@@ -708,6 +723,8 @@ public class MainController implements Initializable {
         String fájlNév = "data/vote.arff";
         int classIndex = 16;
         new GépiTanulás1(fájlNév, classIndex);
+        döntésiFaMsg.setText("Elvileg sikerült a művelet!");
+        setTimerForLabel(döntésiFaMsg);
     }
     @FXML
     protected void adatbányászatMenuTöbbAlgoritmus() {

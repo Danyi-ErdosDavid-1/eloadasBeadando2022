@@ -49,8 +49,6 @@ public class GépiTanulás1 {
                     TN++;
             }
             kiir.println("\nTP="+TP+", "+"TN="+TN+", "+"FP="+FP+", "+"FN="+FN);
-            kiir.println("TP+TN="+(TP+TN));
-            kiir.println("FP+FN="+(FP+FN));
             kiir.close();
         }
         catch (Exception e) {
