@@ -383,7 +383,7 @@
         <children>
             <Label text="NAGYON FONTOS!!! MIELŐTT A REST2 MENÜBEN BÁRMIT CSINÁLNA, KÉREM NYISSA MEG A CHROME-BAN / FIREFOX-BAN" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label text="AZ AZURE-BA FELTÖLTÖTT REST SZERVEREM EGYIK API URL-JÉT (UGYE SIMA JSON-T FOG VISSZAADNI), EZT:" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField text="https://danyi-erdosdavid-eloadas-beadando-3feladat.azurewebsites.net/szemelyek" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField text="https://danyi-erdosdavid-eloadas-beadando-3feladat.azurewebsites.net/szemelyek" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Label text="  , ÉS EZT AZ URL-T HASZNÁLJA! 3-4 PERCIG (VAGY TOVÁBB) IS ELTARTHAT, MIRE BETÖLT (LEGOLCSÓBB CSOMAGOT VÁLASZTOTTAM)." textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <Label text="VALAMIÉRT KELL EZ A 'TRIGGERELÉS' A MŰKÖDÉSHEZ..UTÁNA MÁR BEZÁRHATJA AZ OLDALT (MONDJUK NEM TUDOM 'MEDDIG TART KI A HATÁSA')." textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <Label text="TEHÁT EZEN OLDAL BETÖLTÉSE NÉLKÜL AZ ALKALMAZÁSBAN EZ A MENÜPONT - REST2 - NEM FOG EREDMÉNYT VISSZAADNI ÉS" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="7" />
@@ -426,7 +426,7 @@
         <children>
             <Label text="NAGYON FONTOS!!! MIELŐTT A REST2 MENÜBEN BÁRMIT CSINÁLNA, KÉREM NYISSA MEG A CHROME-BAN / FIREFOX-BAN" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label text="AZ AZURE-BA FELTÖLTÖTT REST SZERVEREM EGYIK API URL-JÉT (UGYE SIMA JSON-T FOG VISSZAADNI), EZT:" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField text="https://danyi-erdosdavid-eloadas-beadando-3feladat.azurewebsites.net/szemelyek" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField text="https://danyi-erdosdavid-eloadas-beadando-3feladat.azurewebsites.net/szemelyek" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Label text="  , ÉS EZT AZ URL-T HASZNÁLJA! 3-4 PERCIG (VAGY TOVÁBB) IS ELTARTHAT, MIRE BETÖLT (LEGOLCSÓBB CSOMAGOT VÁLASZTOTTAM)." textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <Label text="VALAMIÉRT KELL EZ A 'TRIGGERELÉS' A MŰKÖDÉSHEZ..UTÁNA MÁR BEZÁRHATJA AZ OLDALT (MONDJUK NEM TUDOM 'MEDDIG TART KI A HATÁSA')." textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <Label text="TEHÁT EZEN OLDAL BETÖLTÉSE NÉLKÜL AZ ALKALMAZÁSBAN EZ A MENÜPONT - REST2 - NEM FOG EREDMÉNYT VISSZAADNI ÉS" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="7" />
@@ -471,7 +471,7 @@
         <children>
             <Label text="NAGYON FONTOS!!! MIELŐTT A REST2 MENÜBEN BÁRMIT CSINÁLNA, KÉREM NYISSA MEG A CHROME-BAN / FIREFOX-BAN" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label text="AZ AZURE-BA FELTÖLTÖTT REST SZERVEREM EGYIK API URL-JÉT (UGYE SIMA JSON-T FOG VISSZAADNI), EZT:" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField text="https://danyi-erdosdavid-eloadas-beadando-3feladat.azurewebsites.net/szemelyek" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField text="https://danyi-erdosdavid-eloadas-beadando-3feladat.azurewebsites.net/szemelyek" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Label text="  , ÉS EZT AZ URL-T HASZNÁLJA! 3-4 PERCIG (VAGY TOVÁBB) IS ELTARTHAT, MIRE BETÖLT (LEGOLCSÓBB CSOMAGOT VÁLASZTOTTAM)." textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <Label text="VALAMIÉRT KELL EZ A 'TRIGGERELÉS' A MŰKÖDÉSHEZ..UTÁNA MÁR BEZÁRHATJA AZ OLDALT (MONDJUK NEM TUDOM 'MEDDIG TART KI A HATÁSA')." textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <Label text="TEHÁT EZEN OLDAL BETÖLTÉSE NÉLKÜL AZ ALKALMAZÁSBAN EZ A MENÜPONT - REST2 - NEM FOG EREDMÉNYT VISSZAADNI ÉS" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="7" />
@@ -515,7 +515,7 @@
         <children>
             <Label text="NAGYON FONTOS!!! MIELŐTT A REST2 MENÜBEN BÁRMIT CSINÁLNA, KÉREM NYISSA MEG A CHROME-BAN / FIREFOX-BAN" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Label text="AZ AZURE-BA FELTÖLTÖTT REST SZERVEREM EGYIK API URL-JÉT (UGYE SIMA JSON-T FOG VISSZAADNI), EZT:" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <TextField text="https://danyi-erdosdavid-eloadas-beadando-3feladat.azurewebsites.net/szemelyek" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField text="https://danyi-erdosdavid-eloadas-beadando-3feladat.azurewebsites.net/szemelyek" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             <Label text="  , ÉS EZT AZ URL-T HASZNÁLJA! 3-4 PERCIG (VAGY TOVÁBB) IS ELTARTHAT, MIRE BETÖLT (LEGOLCSÓBB CSOMAGOT VÁLASZTOTTAM)." textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <Label text="VALAMIÉRT KELL EZ A 'TRIGGERELÉS' A MŰKÖDÉSHEZ..UTÁNA MÁR BEZÁRHATJA AZ OLDALT (MONDJUK NEM TUDOM 'MEDDIG TART KI A HATÁSA')." textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <Label text="TEHÁT EZEN OLDAL BETÖLTÉSE NÉLKÜL AZ ALKALMAZÁSBAN EZ A MENÜPONT - REST2 - NEM FOG EREDMÉNYT VISSZAADNI ÉS" textFill="#da0c0c" GridPane.columnIndex="1" GridPane.rowIndex="7" />
