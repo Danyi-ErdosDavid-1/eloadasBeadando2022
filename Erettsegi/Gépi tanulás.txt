@@ -1,0 +1,45 @@
+
+classifier.getClass():class weka.classifiers.trees.J48
+
+Correctly Classified Instances:419	96.32183908045977%
+
+Incorrectly Classified Instances:16	3.67816091954023%
+
+TP=161, TN=9, FP=258, FN=7
+--------------------------------------------
+
+classifier.getClass():class weka.classifiers.functions.SMO
+
+Correctly Classified Instances:418	96.0919540229885%
+
+Incorrectly Classified Instances:17	3.9080459770114944%
+
+TP=161, TN=10, FP=257, FN=7
+--------------------------------------------
+
+classifier.getClass():class weka.classifiers.bayes.NaiveBayes
+
+Correctly Classified Instances:392	90.11494252873563%
+
+Incorrectly Classified Instances:43	9.885057471264368%
+
+TP=149, TN=24, FP=243, FN=19
+--------------------------------------------
+
+classifier.getClass():class weka.classifiers.lazy.IBk
+
+Correctly Classified Instances:404	92.8735632183908%
+
+Incorrectly Classified Instances:31	7.126436781609195%
+
+TP=158, TN=21, FP=246, FN=10
+--------------------------------------------
+
+classifier.getClass():class weka.classifiers.trees.RandomForest
+
+Correctly Classified Instances:418	96.0919540229885%
+
+Incorrectly Classified Instances:17	3.9080459770114944%
+
+TP=160, TN=9, FP=258, FN=8
+--------------------------------------------

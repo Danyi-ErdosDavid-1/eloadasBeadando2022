@@ -1,5 +1,6 @@
 package com.erettsegi;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -8,15 +9,22 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import weka.classifiers.bayes.NaiveBayes;
+import weka.classifiers.functions.SMO;
+import weka.classifiers.lazy.IBk;
+import weka.classifiers.trees.J48;
+import weka.classifiers.trees.RandomForest;
+import weka.core.Utils;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
 import java.net.URL;
 import java.sql.*;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class MainController implements Initializable {
     @FXML public TableView tv1;
@@ -29,6 +37,13 @@ public class MainController implements Initializable {
     @FXML public GridPane gr7;
     @FXML public GridPane gr8;
     @FXML public GridPane gr9;
+    @FXML public GridPane gr10;
+    @FXML public GridPane gr11;
+    @FXML public GridPane gr12;
+    @FXML public GridPane gr13;
+    @FXML public GridPane gr14;
+    @FXML public GridPane gr15;
+    @FXML public GridPane gr16;
     @FXML public TextField tf1;
     @FXML public TextField tf2;
     @FXML public TextField tf3;
@@ -45,14 +60,28 @@ public class MainController implements Initializable {
     @FXML public TextField tf14;
     @FXML public TextField tf15;
     @FXML public TextField tf16;
+    @FXML public TextField tf17;
+    @FXML public TextField tf18;
+    @FXML public TextField tf19;
+    @FXML public TextField tf20;
+    @FXML public TextField tf21;
+    @FXML public TextField tf22;
+    @FXML public TextField tf23;
     @FXML public TextArea ta1;
     @FXML public TextArea ta2;
     @FXML public TextArea ta3;
     @FXML public TextArea ta4;
+    @FXML public TextArea ta5;
+    @FXML public TextArea ta6;
+    @FXML public TextArea ta7;
+    @FXML public TextArea ta8;
+    @FXML public TextArea ta9;
+    @FXML public TextArea ta10;
     @FXML public ComboBox cb1;
     @FXML public ComboBox cb2;
     @FXML public ComboBox cb3;
     @FXML public ComboBox cb4;
+    @FXML public ComboBox cb5;
     @FXML public CheckBox ch1;
     @FXML public CheckBox ch2;
     @FXML public CheckBox ch3;
@@ -71,6 +100,7 @@ public class MainController implements Initializable {
     @FXML public Label msgForVizsgaTorles;
     @FXML public Label errorForVizsgaTorles;
     @FXML public Label errorForVizsgaTorles2;
+    @FXML public Label döntésiFaMsg;
     @FXML public TableColumn<Vizsgaadatok, Integer> vizsgazoAzonCol;
     @FXML public TableColumn<Vizsgaadatok, String> nevCol;
     @FXML public TableColumn<Vizsgaadatok, String> osztalyCol;
@@ -84,8 +114,8 @@ public class MainController implements Initializable {
     Connection connection;
     Statement statement;
     PreparedStatement preparedStatement;
-    static String token = "cf80eff8acb5840b59b220e16e409ea4589bae9a86bc4a4cf4c806f8edfe23b8";
-    static HttpsURLConnection httpsURLConnection;
+    final String token = "cf80eff8acb5840b59b220e16e409ea4589bae9a86bc4a4cf4c806f8edfe23b8";
+    HttpsURLConnection httpsURLConnection;
     protected void ElemekTörlése() {
         gr1.setVisible(false);
         gr1.setManaged(false);
@@ -105,6 +135,20 @@ public class MainController implements Initializable {
         gr8.setManaged(false);
         gr9.setVisible(false);
         gr9.setManaged(false);
+        gr10.setVisible(false);
+        gr10.setManaged(false);
+        gr11.setVisible(false);
+        gr11.setManaged(false);
+        gr12.setVisible(false);
+        gr12.setManaged(false);
+        gr13.setVisible(false);
+        gr13.setManaged(false);
+        gr14.setVisible(false);
+        gr14.setManaged(false);
+        gr15.setVisible(false);
+        gr15.setManaged(false);
+        gr16.setVisible(false);
+        gr16.setManaged(false);
         tv1.setVisible(false);
         tv1.setManaged(false);
         errorForSzures.setVisible(false);
@@ -127,9 +171,11 @@ public class MainController implements Initializable {
     @FXML
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ElemekTörlése();
         cb1.getItems().addAll("Magyar nyelv és irodalom", "Történelem", "Matematika", "Informatika", "Fizika", "Kémia", "Angol", "Német", "Földrajz", "Biológia");
         cb1.getSelectionModel().select("Magyar nyelv és irodalom");
-        ElemekTörlése();
+        cb5.getItems().addAll("Döntési fa", "Support-vector machine", "NaiveBayes", "K-legközelebbi szomszéd", "RandomForest");
+        cb5.getSelectionModel().select("Döntési fa");
         try {
             initConfig();
         } catch (SQLException e) {
@@ -146,6 +192,17 @@ public class MainController implements Initializable {
     }
     protected void clearControlUIData(TextField... tfList) {
         for(TextField tf : tfList) tf.setText("");
+    }
+    protected void setTimerForLabel(Label label) {
+        Timer tm = new Timer();
+        tm.schedule(new TimerTask(){
+            @Override
+            public void run() {
+                Platform.runLater(() -> {
+                    label.setText("");
+                });
+            }
+        },3000);
     }
     protected void initTable() {
         ElemekTörlése();
@@ -321,6 +378,7 @@ public class MainController implements Initializable {
             preparedStatement.executeUpdate();
             msgForVizsgazoHozzaadas.setVisible(true);
             msgForVizsgazoHozzaadas.setManaged(true);
+            setTimerForLabel(msgForVizsgazoHozzaadas);
             tf2.setText("");
             tf3.setText("");
         }
@@ -350,6 +408,7 @@ public class MainController implements Initializable {
             }
             msgForVizsgazoModositas.setVisible(true);
             msgForVizsgazoModositas.setManaged(true);
+            setTimerForLabel(msgForVizsgazoModositas);
             tf4.setText("");
             tf5.setText("");
         }
@@ -367,7 +426,6 @@ public class MainController implements Initializable {
             preparedStatement = connection.prepareStatement("DELETE FROM vizsga WHERE vizsgazoaz = ? AND vizsgatargyaz = ?");
             preparedStatement.setString(1, cb3.getValue() + "");
             preparedStatement.setString(2, cb4.getValue() + "");
-            System.out.println(preparedStatement.toString());
             errorForVizsgaTorles.setVisible(false);
             errorForVizsgaTorles.setManaged(false);
             errorForVizsgaTorles2.setVisible(false);
@@ -378,6 +436,7 @@ public class MainController implements Initializable {
             } else {
                 msgForVizsgaTorles.setVisible(true);
                 msgForVizsgaTorles.setManaged(true);
+                setTimerForLabel(msgForVizsgaTorles);
             };
         }
         cb3.getItems().removeAll(cb3.getItems());
@@ -438,6 +497,7 @@ public class MainController implements Initializable {
     }
     @FXML
     protected void btnRest1MenuCreateClick() throws IOException {
+        ta2.setText("");
         URL postUrl = new URL("https://gorest.co.in/public/v1/users");
         httpsURLConnection = (HttpsURLConnection) postUrl.openConnection();
         httpsURLConnection.setRequestMethod("POST");
@@ -465,6 +525,7 @@ public class MainController implements Initializable {
     }
     @FXML
     protected void btnRest1MenuReadClick() throws IOException {
+        ta1.setText("");
         String url = "https://gorest.co.in/public/v1/users";
         String ID = tf6.getText();
         if(ID != null)
@@ -491,6 +552,7 @@ public class MainController implements Initializable {
     }
     @FXML
     protected void btnRest1MenuUpdateClick() throws IOException {
+        ta3.setText("");
         String ID = tf11.getText();
         String name = tf12.getText();
         String gender = tf13.getText();
@@ -520,6 +582,7 @@ public class MainController implements Initializable {
     }
     @FXML
     protected void btnRest1MenuDeleteClick() throws IOException {
+        ta4.setText("");
         String ID = tf16.getText();
         String url = "https://gorest.co.in/public/v1/users"+"/"+ID;
         URL postUrl = new URL(url);
@@ -535,19 +598,106 @@ public class MainController implements Initializable {
     }
     @FXML
     protected void rest2MenuCreateClick() {
-
+        ElemekTörlése();
+        clearControlUIData(tf17, tf18);
+        ta5.setText("");
+        gr10.setVisible(true);
+        gr10.setManaged(true);
+    }
+    @FXML
+    protected void btnRest2MenuCreateClick() throws IOException {
+        ta5.setText("");
+        String nev = tf17.getText();
+        String osztaly = tf18.getText();
+        URL postUrl = new URL("https://danyi-erdosdavid-eloadas-beadando-3feladat.azurewebsites.net/szemelyek");
+        httpsURLConnection = (HttpsURLConnection) postUrl.openConnection();
+        httpsURLConnection.setRequestMethod("POST");
+        segéd1();
+        String params = "{\"nev\":\""+nev+"\", \"osztaly\":\""+osztaly+"\"}";
+        segéd2(params);
+        String response = segéd3(HttpsURLConnection.HTTP_OK);
+        if(!response.equals("Hiba!!!")) {
+            ta5.setText(response);
+        } else {
+            ta5.setText("Az új vizsgázó létrehozása sajnos nem sikerült.");
+        }
     }
     @FXML
     protected void rest2MenuReadClick() {
-
+        ElemekTörlése();
+        clearControlUIData(tf19);
+        ta6.setText("");
+        gr11.setVisible(true);
+        gr11.setManaged(true);
+    }
+    @FXML
+    protected void btnRest2MenuReadClick() throws IOException {
+        ta6.setText("");
+        String url = "https://danyi-erdosdavid-eloadas-beadando-3feladat.azurewebsites.net/szemelyek";
+        String ID = tf19.getText();
+        if(ID!=null)
+            url=url+"/"+ID;
+        URL usersUrl = new URL(url);
+        httpsURLConnection = (HttpsURLConnection) usersUrl.openConnection();
+        httpsURLConnection.setRequestMethod("GET");
+        String response = segéd3(HttpsURLConnection.HTTP_OK);
+        if(!response.equals("Hiba!!!")) {
+            ta6.setText(response);
+        } else {
+            ta6.setText("Nincs vizsgázó ilyen azonosítóval az adatbázisban.");
+        }
     }
     @FXML
     protected void rest2MenuUpdateClick() {
-
+        ElemekTörlése();
+        clearControlUIData(tf20, tf21, tf22);
+        ta7.setText("");
+        gr12.setVisible(true);
+        gr12.setManaged(true);
+    }
+    @FXML
+    protected void btnRest2MenuUpdateClick() throws IOException {
+        ta7.setText("");
+        String ID = tf20.getText();
+        String nev = tf21.getText();
+        String osztaly = tf22.getText();
+        String url = "https://danyi-erdosdavid-eloadas-beadando-3feladat.azurewebsites.net/szemelyek"+"/"+ID;
+        URL postUrl = new URL(url);
+        httpsURLConnection = (HttpsURLConnection) postUrl.openConnection();
+        httpsURLConnection.setRequestMethod("PUT");
+        segéd1();
+        String params = "{\"nev\":\""+nev+"\", \"osztaly\":\""+osztaly+"\"}";
+        segéd2(params);
+        String response = segéd3(HttpsURLConnection.HTTP_OK);
+        if(!response.equals("Hiba!!!")) {
+            ta7.setText(response);
+        } else {
+            ta7.setText("A vizsgázó módosítása sajnos nem sikerült.");
+        }
     }
     @FXML
     protected void rest2MenuDeleteClick() {
-
+        ElemekTörlése();
+        clearControlUIData(tf23);
+        ta8.setText("");
+        gr13.setVisible(true);
+        gr13.setManaged(true);
+    }
+    @FXML
+    protected void btnRest2MenuDeleteClick() throws IOException {
+        ta8.setText("");
+        String ID = tf23.getText();
+        String url = "https://danyi-erdosdavid-eloadas-beadando-3feladat.azurewebsites.net/szemelyek"+"/"+ID;
+        URL postUrl = new URL(url);
+        httpsURLConnection = (HttpsURLConnection) postUrl.openConnection();
+        httpsURLConnection.setRequestMethod("DELETE");
+        segéd1();
+        String response = segéd3(HttpsURLConnection.HTTP_OK);
+        if(!response.equals("Hiba!!!")) {
+            ta8.setText("Sikeresen törölte a vizsgázót!");
+        } else {
+            ta8.setText("A vizsgázó törlése sajnos nem sikerült.");
+        }
     }
     @FXML
     protected void soapKliensMenuLetöltés() {
@@ -563,15 +713,96 @@ public class MainController implements Initializable {
     }
     @FXML
     protected void adatbányászatMenuDöntésiFa() {
-
+        ElemekTörlése();
+        döntésiFaMsg.setText("");
+        gr14.setVisible(true);
+        gr14.setManaged(true);
+    }
+    @FXML
+    protected void btnAdatbányászatMenuDöntésiFa() {
+        String fájlNév = "data/vote.arff";
+        int classIndex = 16;
+        new GépiTanulás1(fájlNév, classIndex);
+        döntésiFaMsg.setText("Elvileg sikerült a művelet!");
+        setTimerForLabel(döntésiFaMsg);
     }
     @FXML
     protected void adatbányászatMenuTöbbAlgoritmus() {
-
+        ElemekTörlése();
+        gr15.setVisible(true);
+        gr15.setManaged(true);
+    }
+    @FXML
+    protected void btnAdatbányászatMenuTöbbAlgoritmus() throws Exception {
+        String fájlNév = "data/vote.arff";
+        int classIndex = 16;
+        PrintWriter kiir = new PrintWriter("Gépi tanulás.txt");
+        String bestCorrectlyCIClassName = "";
+        List<String[]> list = new ArrayList<String[]>();
+        String[] arr1 = new GépiTanulás2CrossValidation(fájlNév, classIndex, new J48(), kiir, "Döntési fa").getImportantData();
+        String[] arr2 = new GépiTanulás2CrossValidation(fájlNév, classIndex, new SMO(), kiir, "Support-vector machine").getImportantData();
+        String[] arr3 = new GépiTanulás2CrossValidation(fájlNév, classIndex, new NaiveBayes(), kiir, "NaiveBayes").getImportantData();
+        IBk classifier = new IBk();
+        classifier.setOptions(Utils.splitOptions("-K 10"));
+        String[]arr4 = new GépiTanulás2CrossValidation(fájlNév, classIndex, classifier, kiir, "K-legközelebbi szomszéd").getImportantData();
+        String[] arr5 = new GépiTanulás2CrossValidation(fájlNév, classIndex, new RandomForest(), kiir, "RandomForest").getImportantData();
+        kiir.close();
+        double bestCorrClassIns = 0.0;
+        list.add(arr1);
+        list.add(arr2);
+        list.add(arr3);
+        list.add(arr4);
+        list.add(arr5);
+        for(int i = 0; i < list.size(); i++) {
+            double value = Double.parseDouble(list.get(i)[0]);
+            if(value > bestCorrClassIns) {
+                bestCorrClassIns = value;
+                bestCorrectlyCIClassName = list.get(i)[1];
+            }
+        }
+        ta9.setText(bestCorrectlyCIClassName);
+        ta9.setFont(new Font(36.0));
     }
     @FXML
     protected void adatbányászatMenuTöbbAlgoritmus2() {
-
+        ElemekTörlése();
+        gr16.setVisible(true);
+        gr16.setManaged(true);
+        ta10.setText("");
+    }
+    @FXML
+    protected void btnAdatbányászatMenuTöbbAlgoritmus2() throws Exception {
+        String fájlNév = "data/vote.arff";
+        int classIndex = 16;
+        ta10.setText("");
+        List<String> data = new ArrayList<String>();
+        String algoritmus = cb5.getValue() + "";
+        switch(algoritmus) {
+            case "Döntési fa":
+                data = new GépiTanulás3CrossValidation(fájlNév, classIndex, new J48()).getData();
+                break;
+            case "Support-vector machine":
+                data = new GépiTanulás3CrossValidation(fájlNév, classIndex, new SMO()).getData();
+                break;
+            case "NaiveBayes":
+                data = new GépiTanulás3CrossValidation(fájlNév, classIndex, new NaiveBayes()).getData();
+                break;
+            case "K-legközelebbi szomszéd":
+                IBk classifier = new IBk();
+                classifier.setOptions(Utils.splitOptions("-K 10"));
+                data = new GépiTanulás3CrossValidation(fájlNév, classIndex, classifier).getData();
+                break;
+            case "RandomForest":
+                data = new GépiTanulás3CrossValidation(fájlNév, classIndex, new RandomForest()).getData();
+                break;
+        }
+        setTextArea10(data);
+    }
+    protected void setTextArea10(List<String> data) {
+        String text = "";
+        for(String d : data) text += d;
+        ta10.setText(text);
+        ta10.setFont(new Font(25.0));
     }
     @FXML
     protected void egyébMenuPárhuzamos() {
