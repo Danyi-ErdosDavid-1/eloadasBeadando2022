@@ -1,19 +1,5 @@
-instances.size():435
-
-GépiTanulás1: Randomize után vagy anélkül: tanító: első 90%, kiértékelő: utolsó 10%
 tanító.size():391
 kiértékelő.size():43
-
-Results
-Correctly Classified Instances          41               95.3488 %
-Incorrectly Classified Instances         2                4.6512 %
-Kappa statistic                          0.9057
-Mean absolute error                      0.073 
-Root mean squared error                  0.1753
-Relative absolute error                 14.7933 %
-Root relative squared error             35.2976 %
-Total Number of Instances               43     
-
 Correctly Classified Instances:41
 Incorrectly Classified Instances:2
 J48 pruned tree

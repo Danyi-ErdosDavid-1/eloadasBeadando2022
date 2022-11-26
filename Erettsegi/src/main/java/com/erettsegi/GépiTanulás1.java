@@ -14,13 +14,11 @@ public class GépiTanulás1 {
             BufferedReader bufferedReader = new BufferedReader(new FileReader(fájlNév));
             Instances instances = new Instances(bufferedReader);
             PrintWriter kiir = new PrintWriter("Döntési fa.txt");
-            kiir.println("instances.size():"+instances.size());
             instances.setClassIndex(classIndex);
             Instances tanító, kiértékelő;
             J48 classifier;
             Evaluation evaluation;
             classifier = new J48();
-            kiir.println("\nGépiTanulás1: Randomize után vagy anélkül: tanító: első 90%, kiértékelő: utolsó 10%");
             if(false) instances.randomize(new Random());
             tanító = new Instances(instances,0,9*instances.size()/10);
             kiir.println("tanító.size():"+tanító.size());
@@ -29,7 +27,6 @@ public class GépiTanulás1 {
             classifier.buildClassifier(tanító);
             evaluation = new Evaluation(kiértékelő);
             double[] eredmeny = evaluation.evaluateModel(classifier, kiértékelő);
-            kiir.println(evaluation.toSummaryString("\nResults", false));
             kiir.println("Correctly Classified Instances:"+(int)evaluation.correct());
             kiir.println("Incorrectly Classified Instances:"+(kiértékelő.size()-(int)evaluation.correct()));
             kiir.println(classifier.toString());
